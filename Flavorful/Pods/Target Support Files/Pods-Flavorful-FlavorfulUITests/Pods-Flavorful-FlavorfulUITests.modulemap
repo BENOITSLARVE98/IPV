@@ -1,0 +1,6 @@
+framework module Pods_Flavorful_FlavorfulUITests {
+  umbrella header "Pods-Flavorful-FlavorfulUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

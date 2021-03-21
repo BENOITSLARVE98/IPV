@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1915DFA6260462CB007E54C5 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1915DFA5260462CB007E54C5 /* DiscoverViewController.swift */; };
+		1931AAE42605322E0019A09C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1931AAE32605322E0019A09C /* GoogleService-Info.plist */; };
+		1931AAEC260697BD0019A09C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1931AAEB260697BD0019A09C /* AuthManager.swift */; };
+		1931AAF1260698CD0019A09C /* DataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1931AAF0260698CD0019A09C /* DataValidation.swift */; };
+		1991F35626026CDB00B9768A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1991F35526026CDB00B9768A /* AppDelegate.swift */; };
+		1991F35826026CDB00B9768A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1991F35726026CDB00B9768A /* SceneDelegate.swift */; };
+		1991F35D26026CDB00B9768A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1991F35B26026CDB00B9768A /* Main.storyboard */; };
+		1991F35F26026CDD00B9768A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1991F35E26026CDD00B9768A /* Assets.xcassets */; };
+		1991F36226026CDD00B9768A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1991F36026026CDD00B9768A /* LaunchScreen.storyboard */; };
+		1991F36D26026CE000B9768A /* FlavorfulTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1991F36C26026CE000B9768A /* FlavorfulTests.swift */; };
+		1991F37826026CE000B9768A /* FlavorfulUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1991F37726026CE000B9768A /* FlavorfulUITests.swift */; };
+		1991F3912602710500B9768A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1991F3902602710500B9768A /* LoginViewController.swift */; };
+		1991F3962602712100B9768A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1991F3952602712100B9768A /* SignupViewController.swift */; };
+		1991F39B2602719400B9768A /* ForgotPwdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1991F39A2602719400B9768A /* ForgotPwdViewController.swift */; };
+		29466C294C2D6C6993EAFD4D /* Pods_FlavorfulTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FAC10B34788BB1D1F4F3A1C /* Pods_FlavorfulTests.framework */; };
+		416E51BE51E7A2388E07A3C1 /* Pods_Flavorful_FlavorfulUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDDFC1C2324DFFC0FC5533E6 /* Pods_Flavorful_FlavorfulUITests.framework */; };
+		64DF41BCD991E9F0F16A4600 /* Pods_Flavorful.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3925A42F0C5E34176147AAB6 /* Pods_Flavorful.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1991F36926026CE000B9768A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1991F34A26026CDB00B9768A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1991F35126026CDB00B9768A;
+			remoteInfo = Flavorful;
+		};
+		1991F37426026CE000B9768A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1991F34A26026CDB00B9768A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1991F35126026CDB00B9768A;
+			remoteInfo = Flavorful;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0FAC10B34788BB1D1F4F3A1C /* Pods_FlavorfulTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlavorfulTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1915DFA5260462CB007E54C5 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		1931AAE32605322E0019A09C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1931AAEB260697BD0019A09C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		1931AAF0260698CD0019A09C /* DataValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
+		1991F35226026CDB00B9768A /* Flavorful.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flavorful.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1991F35526026CDB00B9768A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1991F35726026CDB00B9768A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1991F35C26026CDB00B9768A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1991F35E26026CDD00B9768A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1991F36126026CDD00B9768A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1991F36326026CDD00B9768A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1991F36826026CE000B9768A /* FlavorfulTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavorfulTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1991F36C26026CE000B9768A /* FlavorfulTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorfulTests.swift; sourceTree = "<group>"; };
+		1991F36E26026CE000B9768A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1991F37326026CE000B9768A /* FlavorfulUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlavorfulUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1991F37726026CE000B9768A /* FlavorfulUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorfulUITests.swift; sourceTree = "<group>"; };
+		1991F37926026CE000B9768A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1991F3902602710500B9768A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		1991F3952602712100B9768A /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		1991F39A2602719400B9768A /* ForgotPwdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPwdViewController.swift; sourceTree = "<group>"; };
+		3925A42F0C5E34176147AAB6 /* Pods_Flavorful.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flavorful.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D3C2B7E52FC820C7528E5B3 /* Pods-Flavorful.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flavorful.debug.xcconfig"; path = "Target Support Files/Pods-Flavorful/Pods-Flavorful.debug.xcconfig"; sourceTree = "<group>"; };
+		4EDBA1EA95358C3450C445D5 /* Pods-Flavorful.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flavorful.release.xcconfig"; path = "Target Support Files/Pods-Flavorful/Pods-Flavorful.release.xcconfig"; sourceTree = "<group>"; };
+		980C9B51C7D863BFDBD2EA0C /* Pods-Flavorful-FlavorfulUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flavorful-FlavorfulUITests.release.xcconfig"; path = "Target Support Files/Pods-Flavorful-FlavorfulUITests/Pods-Flavorful-FlavorfulUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B766C655429D46EECFC18B92 /* Pods-FlavorfulTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlavorfulTests.release.xcconfig"; path = "Target Support Files/Pods-FlavorfulTests/Pods-FlavorfulTests.release.xcconfig"; sourceTree = "<group>"; };
+		C7FA062C24DA4B4DB60FAA9A /* Pods-Flavorful-FlavorfulUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flavorful-FlavorfulUITests.debug.xcconfig"; path = "Target Support Files/Pods-Flavorful-FlavorfulUITests/Pods-Flavorful-FlavorfulUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EDDFC1C2324DFFC0FC5533E6 /* Pods_Flavorful_FlavorfulUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flavorful_FlavorfulUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F836871DAED70A5D56F620C5 /* Pods-FlavorfulTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlavorfulTests.debug.xcconfig"; path = "Target Support Files/Pods-FlavorfulTests/Pods-FlavorfulTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1991F34F26026CDB00B9768A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64DF41BCD991E9F0F16A4600 /* Pods_Flavorful.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1991F36526026CE000B9768A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29466C294C2D6C6993EAFD4D /* Pods_FlavorfulTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1991F37026026CE000B9768A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				416E51BE51E7A2388E07A3C1 /* Pods_Flavorful_FlavorfulUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1991F34926026CDB00B9768A = {
+			isa = PBXGroup;
+			children = (
+				1991F35426026CDB00B9768A /* Flavorful */,
+				1991F36B26026CE000B9768A /* FlavorfulTests */,
+				1991F37626026CE000B9768A /* FlavorfulUITests */,
+				1991F35326026CDB00B9768A /* Products */,
+				D27D8CED027E4EECF1036D0C /* Pods */,
+				6C8A4961C6234DE90536895F /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		1991F35326026CDB00B9768A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1991F35226026CDB00B9768A /* Flavorful.app */,
+				1991F36826026CE000B9768A /* FlavorfulTests.xctest */,
+				1991F37326026CE000B9768A /* FlavorfulUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1991F35426026CDB00B9768A /* Flavorful */ = {
+			isa = PBXGroup;
+			children = (
+				1991F35526026CDB00B9768A /* AppDelegate.swift */,
+				1991F35726026CDB00B9768A /* SceneDelegate.swift */,
+				1991F35B26026CDB00B9768A /* Main.storyboard */,
+				1915DFA5260462CB007E54C5 /* DiscoverViewController.swift */,
+				1991F35E26026CDD00B9768A /* Assets.xcassets */,
+				1991F36026026CDD00B9768A /* LaunchScreen.storyboard */,
+				1991F36326026CDD00B9768A /* Info.plist */,
+				1991F3902602710500B9768A /* LoginViewController.swift */,
+				1991F3952602712100B9768A /* SignupViewController.swift */,
+				1991F39A2602719400B9768A /* ForgotPwdViewController.swift */,
+				1931AAE32605322E0019A09C /* GoogleService-Info.plist */,
+				1931AAEB260697BD0019A09C /* AuthManager.swift */,
+				1931AAF0260698CD0019A09C /* DataValidation.swift */,
+			);
+			path = Flavorful;
+			sourceTree = "<group>";
+		};
+		1991F36B26026CE000B9768A /* FlavorfulTests */ = {
+			isa = PBXGroup;
+			children = (
+				1991F36C26026CE000B9768A /* FlavorfulTests.swift */,
+				1991F36E26026CE000B9768A /* Info.plist */,
+			);
+			path = FlavorfulTests;
+			sourceTree = "<group>";
+		};
+		1991F37626026CE000B9768A /* FlavorfulUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1991F37726026CE000B9768A /* FlavorfulUITests.swift */,
+				1991F37926026CE000B9768A /* Info.plist */,
+			);
+			path = FlavorfulUITests;
+			sourceTree = "<group>";
+		};
+		6C8A4961C6234DE90536895F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3925A42F0C5E34176147AAB6 /* Pods_Flavorful.framework */,
+				EDDFC1C2324DFFC0FC5533E6 /* Pods_Flavorful_FlavorfulUITests.framework */,
+				0FAC10B34788BB1D1F4F3A1C /* Pods_FlavorfulTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D27D8CED027E4EECF1036D0C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D3C2B7E52FC820C7528E5B3 /* Pods-Flavorful.debug.xcconfig */,
+				4EDBA1EA95358C3450C445D5 /* Pods-Flavorful.release.xcconfig */,
+				C7FA062C24DA4B4DB60FAA9A /* Pods-Flavorful-FlavorfulUITests.debug.xcconfig */,
+				980C9B51C7D863BFDBD2EA0C /* Pods-Flavorful-FlavorfulUITests.release.xcconfig */,
+				F836871DAED70A5D56F620C5 /* Pods-FlavorfulTests.debug.xcconfig */,
+				B766C655429D46EECFC18B92 /* Pods-FlavorfulTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1991F35126026CDB00B9768A /* Flavorful */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1991F37C26026CE000B9768A /* Build configuration list for PBXNativeTarget "Flavorful" */;
+			buildPhases = (
+				CBF7C989FDBF1E8AB9E2108F /* [CP] Check Pods Manifest.lock */,
+				1991F34E26026CDB00B9768A /* Sources */,
+				1991F34F26026CDB00B9768A /* Frameworks */,
+				1991F35026026CDB00B9768A /* Resources */,
+				17C7DA04DED9D7590C7618D4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flavorful;
+			productName = Flavorful;
+			productReference = 1991F35226026CDB00B9768A /* Flavorful.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1991F36726026CE000B9768A /* FlavorfulTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1991F37F26026CE000B9768A /* Build configuration list for PBXNativeTarget "FlavorfulTests" */;
+			buildPhases = (
+				FE46E3AA0763D6A01DADB236 /* [CP] Check Pods Manifest.lock */,
+				1991F36426026CE000B9768A /* Sources */,
+				1991F36526026CE000B9768A /* Frameworks */,
+				1991F36626026CE000B9768A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1991F36A26026CE000B9768A /* PBXTargetDependency */,
+			);
+			name = FlavorfulTests;
+			productName = FlavorfulTests;
+			productReference = 1991F36826026CE000B9768A /* FlavorfulTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1991F37226026CE000B9768A /* FlavorfulUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1991F38226026CE000B9768A /* Build configuration list for PBXNativeTarget "FlavorfulUITests" */;
+			buildPhases = (
+				5C7CE08C9A4C17E2272FBDBE /* [CP] Check Pods Manifest.lock */,
+				1991F36F26026CE000B9768A /* Sources */,
+				1991F37026026CE000B9768A /* Frameworks */,
+				1991F37126026CE000B9768A /* Resources */,
+				1D7F880F2916EF14DF7B998A /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1991F37526026CE000B9768A /* PBXTargetDependency */,
+			);
+			name = FlavorfulUITests;
+			productName = FlavorfulUITests;
+			productReference = 1991F37326026CE000B9768A /* FlavorfulUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1991F34A26026CDB00B9768A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1210;
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					1991F35126026CDB00B9768A = {
+						CreatedOnToolsVersion = 12.1;
+					};
+					1991F36726026CE000B9768A = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 1991F35126026CDB00B9768A;
+					};
+					1991F37226026CE000B9768A = {
+						CreatedOnToolsVersion = 12.1;
+						TestTargetID = 1991F35126026CDB00B9768A;
+					};
+				};
+			};
+			buildConfigurationList = 1991F34D26026CDB00B9768A /* Build configuration list for PBXProject "Flavorful" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1991F34926026CDB00B9768A;
+			productRefGroup = 1991F35326026CDB00B9768A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1991F35126026CDB00B9768A /* Flavorful */,
+				1991F36726026CE000B9768A /* FlavorfulTests */,
+				1991F37226026CE000B9768A /* FlavorfulUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1991F35026026CDB00B9768A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1991F36226026CDD00B9768A /* LaunchScreen.storyboard in Resources */,
+				1931AAE42605322E0019A09C /* GoogleService-Info.plist in Resources */,
+				1991F35F26026CDD00B9768A /* Assets.xcassets in Resources */,
+				1991F35D26026CDB00B9768A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1991F36626026CE000B9768A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1991F37126026CE000B9768A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17C7DA04DED9D7590C7618D4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Flavorful/Pods-Flavorful-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Flavorful/Pods-Flavorful-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Flavorful/Pods-Flavorful-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D7F880F2916EF14DF7B998A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Flavorful-FlavorfulUITests/Pods-Flavorful-FlavorfulUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Flavorful-FlavorfulUITests/Pods-Flavorful-FlavorfulUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Flavorful-FlavorfulUITests/Pods-Flavorful-FlavorfulUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C7CE08C9A4C17E2272FBDBE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flavorful-FlavorfulUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBF7C989FDBF1E8AB9E2108F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flavorful-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE46E3AA0763D6A01DADB236 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlavorfulTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1991F34E26026CDB00B9768A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1991F3912602710500B9768A /* LoginViewController.swift in Sources */,
+				1931AAEC260697BD0019A09C /* AuthManager.swift in Sources */,
+				1915DFA6260462CB007E54C5 /* DiscoverViewController.swift in Sources */,
+				1991F3962602712100B9768A /* SignupViewController.swift in Sources */,
+				1931AAF1260698CD0019A09C /* DataValidation.swift in Sources */,
+				1991F35626026CDB00B9768A /* AppDelegate.swift in Sources */,
+				1991F35826026CDB00B9768A /* SceneDelegate.swift in Sources */,
+				1991F39B2602719400B9768A /* ForgotPwdViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1991F36426026CE000B9768A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1991F36D26026CE000B9768A /* FlavorfulTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1991F36F26026CE000B9768A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1991F37826026CE000B9768A /* FlavorfulUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1991F36A26026CE000B9768A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1991F35126026CDB00B9768A /* Flavorful */;
+			targetProxy = 1991F36926026CE000B9768A /* PBXContainerItemProxy */;
+		};
+		1991F37526026CE000B9768A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1991F35126026CDB00B9768A /* Flavorful */;
+			targetProxy = 1991F37426026CE000B9768A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1991F35B26026CDB00B9768A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1991F35C26026CDB00B9768A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1991F36026026CDD00B9768A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1991F36126026CDD00B9768A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1991F37A26026CE000B9768A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1991F37B26026CE000B9768A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1991F37D26026CE000B9768A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D3C2B7E52FC820C7528E5B3 /* Pods-Flavorful.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M5MCCCMKVR;
+				INFOPLIST_FILE = Flavorful/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.Flavorful;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1991F37E26026CE000B9768A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EDBA1EA95358C3450C445D5 /* Pods-Flavorful.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M5MCCCMKVR;
+				INFOPLIST_FILE = Flavorful/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.Flavorful;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1991F38026026CE000B9768A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F836871DAED70A5D56F620C5 /* Pods-FlavorfulTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M5MCCCMKVR;
+				INFOPLIST_FILE = FlavorfulTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.FlavorfulTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flavorful.app/Flavorful";
+			};
+			name = Debug;
+		};
+		1991F38126026CE000B9768A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B766C655429D46EECFC18B92 /* Pods-FlavorfulTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M5MCCCMKVR;
+				INFOPLIST_FILE = FlavorfulTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.FlavorfulTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flavorful.app/Flavorful";
+			};
+			name = Release;
+		};
+		1991F38326026CE000B9768A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7FA062C24DA4B4DB60FAA9A /* Pods-Flavorful-FlavorfulUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M5MCCCMKVR;
+				INFOPLIST_FILE = FlavorfulUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.FlavorfulUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Flavorful;
+			};
+			name = Debug;
+		};
+		1991F38426026CE000B9768A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 980C9B51C7D863BFDBD2EA0C /* Pods-Flavorful-FlavorfulUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = M5MCCCMKVR;
+				INFOPLIST_FILE = FlavorfulUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.FlavorfulUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Flavorful;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1991F34D26026CDB00B9768A /* Build configuration list for PBXProject "Flavorful" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1991F37A26026CE000B9768A /* Debug */,
+				1991F37B26026CE000B9768A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1991F37C26026CE000B9768A /* Build configuration list for PBXNativeTarget "Flavorful" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1991F37D26026CE000B9768A /* Debug */,
+				1991F37E26026CE000B9768A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1991F37F26026CE000B9768A /* Build configuration list for PBXNativeTarget "FlavorfulTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1991F38026026CE000B9768A /* Debug */,
+				1991F38126026CE000B9768A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1991F38226026CE000B9768A /* Build configuration list for PBXNativeTarget "FlavorfulUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1991F38326026CE000B9768A /* Debug */,
+				1991F38426026CE000B9768A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1991F34A26026CDB00B9768A /* Project object */;
+}
