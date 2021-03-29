@@ -25,4 +25,13 @@ class DataValidation {
         let result = passwordTest.evaluate(with: password)
         return result
     }
+    
+    //Show error message for textFields
+    func validationError(errorMessage: String, field: UITextField){
+        field.text = ""
+        let placeholderColor = UIColor.red
+        field.attributedPlaceholder = NSAttributedString(string: field.placeholder!, attributes: [NSAttributedString.Key.foregroundColor : placeholderColor])
+        field.placeholder = errorMessage
+    }
+    
 }
