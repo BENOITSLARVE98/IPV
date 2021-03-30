@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190F103C260E4ECC00FAB548 /* RecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190F103B260E4ECC00FAB548 /* RecipeCollectionViewCell.swift */; };
+		190F1041260E5EA400FAB548 /* DiscoverExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190F1040260E5EA400FAB548 /* DiscoverExtension.swift */; };
+		190F1046260E619C00FAB548 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190F1045260E619C00FAB548 /* Recipe.swift */; };
+		190F104B260FBE7400FAB548 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190F104A260FBE7400FAB548 /* DetailsViewController.swift */; };
+		190F1050260FC99D00FAB548 /* DetailsIngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190F104F260FC99D00FAB548 /* DetailsIngredientCell.swift */; };
+		190F10F42612420C00FAB548 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190F10F32612420C00FAB548 /* TabBarViewController.swift */; };
+		190F1135261288B300FAB548 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190F1134261288B300FAB548 /* FavoriteViewController.swift */; };
 		1915DFA6260462CB007E54C5 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1915DFA5260462CB007E54C5 /* DiscoverViewController.swift */; };
 		1931AAE42605322E0019A09C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1931AAE32605322E0019A09C /* GoogleService-Info.plist */; };
 		1931AAEC260697BD0019A09C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1931AAEB260697BD0019A09C /* AuthManager.swift */; };
@@ -45,6 +52,13 @@
 
 /* Begin PBXFileReference section */
 		0FAC10B34788BB1D1F4F3A1C /* Pods_FlavorfulTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlavorfulTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		190F103B260E4ECC00FAB548 /* RecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCollectionViewCell.swift; sourceTree = "<group>"; };
+		190F1040260E5EA400FAB548 /* DiscoverExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverExtension.swift; sourceTree = "<group>"; };
+		190F1045260E619C00FAB548 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		190F104A260FBE7400FAB548 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		190F104F260FC99D00FAB548 /* DetailsIngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsIngredientCell.swift; sourceTree = "<group>"; };
+		190F10F32612420C00FAB548 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		190F1134261288B300FAB548 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		1915DFA5260462CB007E54C5 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		1931AAE32605322E0019A09C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1931AAEB260697BD0019A09C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -131,7 +145,14 @@
 				1991F35526026CDB00B9768A /* AppDelegate.swift */,
 				1991F35726026CDB00B9768A /* SceneDelegate.swift */,
 				1991F35B26026CDB00B9768A /* Main.storyboard */,
+				190F10F32612420C00FAB548 /* TabBarViewController.swift */,
+				190F104A260FBE7400FAB548 /* DetailsViewController.swift */,
+				190F104F260FC99D00FAB548 /* DetailsIngredientCell.swift */,
 				1915DFA5260462CB007E54C5 /* DiscoverViewController.swift */,
+				190F1134261288B300FAB548 /* FavoriteViewController.swift */,
+				190F1045260E619C00FAB548 /* Recipe.swift */,
+				190F1040260E5EA400FAB548 /* DiscoverExtension.swift */,
+				190F103B260E4ECC00FAB548 /* RecipeCollectionViewCell.swift */,
 				1991F35E26026CDD00B9768A /* Assets.xcassets */,
 				1991F36026026CDD00B9768A /* LaunchScreen.storyboard */,
 				1991F36326026CDD00B9768A /* Info.plist */,
@@ -425,14 +446,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				190F103C260E4ECC00FAB548 /* RecipeCollectionViewCell.swift in Sources */,
 				1991F3912602710500B9768A /* LoginViewController.swift in Sources */,
 				1931AAEC260697BD0019A09C /* AuthManager.swift in Sources */,
 				1915DFA6260462CB007E54C5 /* DiscoverViewController.swift in Sources */,
+				190F1135261288B300FAB548 /* FavoriteViewController.swift in Sources */,
+				190F10F42612420C00FAB548 /* TabBarViewController.swift in Sources */,
 				1991F3962602712100B9768A /* SignupViewController.swift in Sources */,
 				1931AAF1260698CD0019A09C /* DataValidation.swift in Sources */,
+				190F1041260E5EA400FAB548 /* DiscoverExtension.swift in Sources */,
 				1991F35626026CDB00B9768A /* AppDelegate.swift in Sources */,
 				1991F35826026CDB00B9768A /* SceneDelegate.swift in Sources */,
+				190F1050260FC99D00FAB548 /* DetailsIngredientCell.swift in Sources */,
 				1991F39B2602719400B9768A /* ForgotPwdViewController.swift in Sources */,
+				190F1046260E619C00FAB548 /* Recipe.swift in Sources */,
+				190F104B260FBE7400FAB548 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

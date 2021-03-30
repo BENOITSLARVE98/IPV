@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Recipe: NSObject {
+class Recipe {
     
     //properties
     var name: String?
@@ -19,7 +19,7 @@ class Recipe: NSObject {
     var ingredient: [String]?
 
     /* Initializers */
-    init(name: String, imageString: String, ingredient: [String], videoUrl: String, numbersArray: [Int], instructionsArray: [String]) {
+    init(name: String, imageString: String, videoUrl: String, numbersArray: [Int], instructionsArray: [String], ingredient: [String]) {
         self.name = name
         self.ingredient = ingredient
         self.videoUrl = videoUrl
@@ -38,25 +38,5 @@ class Recipe: NSObject {
             }
         }
     }
-    
-//    required convenience init?(coder: NSCoder) {
-//        self.init(name: "String", imageString: "String", ingredient: ["String"], videoUrl: "String", numbersArray: [0], instructionsArray: ["String"])
-//
-//        name = coder.decodeObject(forKey: "name") as? String
-//        //imageString = coder.decodeObject(forKey: "image") as? String
-//        videoUrl = coder.decodeObject(forKey: "videoUrl") as? String
-//        numbersArray = coder.decodeObject(forKey: "numArray") as? [Int]
-//        instructionsArray = coder.decodeObject(forKey: "instructionsArray") as? [String]
-//        ingredient = coder.decodeObject(forKey: "ingredient") as? [String]
-//    }
-//
-//    func encode(with coder: NSCoder) {
-//        coder.encode(name, forKey: "name")
-//        //coder.encode(imageString, forKey: "image")
-//        coder.encode(videoUrl, forKey: "videoUrl")
-//        coder.encode(numbersArray, forKey: "numArray")
-//        coder.encode(instructionsArray, forKey: "instructionsArray")
-//        coder.encode(ingredient, forKey: "ingredient")
-//    }
 
 }

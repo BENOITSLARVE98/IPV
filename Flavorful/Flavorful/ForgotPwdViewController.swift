@@ -7,14 +7,33 @@
 
 import UIKit
 
-class ForgotPwdViewController: UIViewController {
+class ForgotPwdViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var emailText: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //Hide back button bar
+        self.navigationItem.setHidesBackButton(true, animated: true)
     }
+    
+    
+    //Set TextFields Max Length
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        var maxLength : Int = 0
+        
+        if textField == emailText{
+            maxLength = 64
+        }
+        
+        let currentString: NSString = textField.text! as NSString
+        
+        let newString: NSString =  currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+    
     
     @IBAction func resetPwdBtn(_ sender: Any) {
         guard let email = emailText.text, email != "" else {
@@ -30,9 +49,9 @@ class ForgotPwdViewController: UIViewController {
     
     func resetPassword(email: String) {
         //If email not empty
-        let signUpManager = AuthManager()
+        let authManager = AuthManager()
         if email != "" {
-            signUpManager.reset(email: email) {[weak self] (success) in
+            authManager.reset(email: email) {[weak self] (success) in
                 guard let `self` = self else { return }
                 var message: String = ""
                 if (success) {

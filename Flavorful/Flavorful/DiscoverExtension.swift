@@ -79,7 +79,7 @@ extension DiscoverViewController {
                             //Append elements to recipe array
                             //if self.recipe.count != 20 {
                                 //print(recipe.count)
-                                self.recipes.append(Recipe(name: name, imageString: image, ingredient: arrayOfIngredients, videoUrl: video, numbersArray: numbersArray, instructionsArray: instructionsArray))
+                            self.recipes.append(Recipe(name: name, imageString: image, videoUrl: video, numbersArray: numbersArray, instructionsArray: instructionsArray, ingredient: arrayOfIngredients))
                             //}
                         }
                     }

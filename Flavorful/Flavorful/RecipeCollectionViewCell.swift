@@ -10,7 +10,7 @@ import UIKit
 class RecipeCollectionViewCell: UICollectionViewCell {
     
     
-    @IBOutlet var recipeImage: UIImageView!
-    @IBOutlet var recipeName: UILabel!
+    @IBOutlet var recipeImageView: UIImageView!
+    @IBOutlet var recipeNameLabel: UILabel!
     
 }

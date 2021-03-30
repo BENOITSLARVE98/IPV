@@ -5,21 +5,69 @@
 //  Created by Slarve N. on 3/27/21.
 //
 
-import UIKit
+import Foundation
+import FirebaseFirestore
+import FirebaseStorage
+import Firebase
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var recipeName: UILabel!
-    @IBOutlet var recipeImage: UIImageView!
+    @IBOutlet var recipeNameLabel: UILabel!
+    @IBOutlet var recipeImageView: UIImageView!
     @IBOutlet var ingredientsTable: UITableView!
+    
     var recipe: Recipe!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        recipeName.text = recipe.name
-        recipeImage.image = recipe.image
+        recipeNameLabel.text = recipe.name
+        recipeImageView.image = recipe.image
+    }
+    
+    @IBAction func saveRecipe(_ sender: UIBarButtonItem) {
+        
+        if let user = Auth.auth().currentUser {
+            
+            //Save Recipe To Firebase Firestore
+            let rootRef = Firestore.firestore()
+            let documentRef = rootRef.collection("favoriteRecipes").document(user.uid)
+            //let collection = Firestore.firestore().collection("favoriteRecipes").document(user.uid)
+            
+            
+            var recipeDict: [String: Any] = [
+                "name": recipe.name!,
+                "imageString": "",
+                "videoUrl": recipe.videoUrl!,
+                "numbersArray": recipe.numbersArray!,
+                "instructionsArray": recipe.instructionsArray!,
+                "ingredient": recipe.ingredient!
+            ]
+            
+            //Get Firebase reference to Save profile image to Storage
+            let storageRef = Storage.storage().reference()
+            let storageProfileRef = storageRef.child("recipeImages").child(user.uid)
+            
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            //Save Recipe image data to firebase Stoarge
+            storageProfileRef.putData((self.recipe.image?.jpegData(compressionQuality: 0.5))!, metadata: metaData, completion: { (storageMetaData, error) in
+                if error != nil {
+                    return
+                }
+                storageProfileRef.downloadURL(completion: { (url, error) in
+                    if let metaImageUrl = url?.absoluteString{
+                        recipeDict["imageString"] = metaImageUrl
+                        Database.database().reference().child("users").child("recipes").child(user.uid).updateChildValues(recipeDict)
+                    }
+                })
+            })
+           //collection.addDocument(data: recipeDict)
+            documentRef.setData(recipeDict)
+            
+        }
     }
     
     
