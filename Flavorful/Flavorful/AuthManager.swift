@@ -39,6 +39,7 @@ class AuthManager {
                     storageProfileRef.downloadURL(completion: { (url, error) in
                         if let metaImageUrl = url?.absoluteString{
                             dict["profileImageUrl"] = metaImageUrl
+                            //Save user to firebase realtime database
                             Database.database().reference().child("users").child(user.uid).updateChildValues(dict)
                         }
                     })
@@ -52,6 +53,7 @@ class AuthManager {
     }
     
     func saveImageToCloud(data: Data, dict: [String: Any]) {
+        
     }
     
     
@@ -86,6 +88,15 @@ class AuthManager {
         }
 
     }
+    
+    func signOut() {
+        do {
+          try Auth.auth().signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+    }
+    
 
 }
 
