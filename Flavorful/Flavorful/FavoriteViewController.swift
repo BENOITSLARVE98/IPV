@@ -38,7 +38,7 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = favoriteCollectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath) as! RecipeCollectionViewCell
+        let cell = favoriteCollectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as! FavoriteCollectionViewCell
         cell.recipeImageView.image = recipes[indexPath.row].image
         cell.recipeNameLabel.text = recipes[indexPath.row].name
         return cell
@@ -64,25 +64,34 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
         }
     }
     
+    
     func retrieveRecipesSaved() {
+        
         if let user = Auth.auth().currentUser {
-            let rootRef = Firestore.firestore()
-            let documentRef = rootRef.collection("favoriteRecipes").document(user.uid)
-            
-            documentRef.getDocument(completion: { (document, error) in
-                if let document = document, document.exists {
-                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                    print("Document data: \(dataDescription)")
-                    document.data()?.forEach { item in
-            
+            Database.database().reference()
+                .child("users").child("recipes").child(user.uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+                    guard let values = snapshot.value as? [String: Any] else {
+                        return
                     }
-                
-                } else {
-                    print("Document does not exist")
-                }
-            })
+                    for (_, value) in values {
+                        guard let recipe = value as? [String: Any],
+                              let name = recipe["name"] as? String,
+                              let imageString = recipe["imageString"] as? String,
+                              let videoUrl = recipe["videoUrl"] as? String,
+                              let numbersArray = recipe["numbersArray"] as? [Int],
+                              let instructionsArray = recipe["instructionsArray"] as? [String],
+                              let ingredient = recipe["ingredient"] as? [String] else {
+                            continue
+                        }
+                        self.recipes.append(Recipe(name: name, imageString: imageString, videoUrl: videoUrl, numbersArray: numbersArray, instructionsArray: instructionsArray, ingredient: ingredient))
+                    }
+                    DispatchQueue.main.async {
+                        self.favoriteCollectionView.reloadData()
+                    }
+                })
         }
     }
+    
     
     /*
     // MARK: - Navigation
@@ -95,3 +104,23 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
     */
 
 }
+
+
+
+
+
+//            let rootRef = Firestore.firestore()
+//            let documentRef = rootRef.collection("favoriteRecipes").document(user.uid)
+//
+//            documentRef.getDocument(completion: { (document, error) in
+//                if let document = document, document.exists {
+//                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                    print("Document data: \(dataDescription)")
+//                    document.data()?.forEach { item in
+//
+//                    }
+//
+//                } else {
+//                    print("Document does not exist")
+//                }
+//            })

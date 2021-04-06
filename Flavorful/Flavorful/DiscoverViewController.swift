@@ -6,21 +6,27 @@
 //
 
 import UIKit
-class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate{
     
 
+    @IBOutlet var filterButtons: UIButton!
     @IBOutlet var recipeCollectionView: UICollectionView!
+    @IBOutlet var containerView: UIView!
+    @IBOutlet var searchBar: UISearchBar!
     
     var recipes = [Recipe]()
     var index = 0
+    
+    var tags = ""
+    var searchWord = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        getRecipesFromApi()
-    }
+        getRecipesFromApi(tag: tags,searchWord: searchWord)
     
+    }
     
     //COLLECTION VIEW SETUP
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
