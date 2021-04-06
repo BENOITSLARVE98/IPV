@@ -30,12 +30,6 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if let user = Auth.auth().currentUser {
             
-            //Save Recipe To Firebase Firestore
-            let rootRef = Firestore.firestore()
-            let documentRef = rootRef.collection("favoriteRecipes").document(user.uid)
-            //let collection = Firestore.firestore().collection("favoriteRecipes").document(user.uid)
-            
-            
             var recipeDict: [String: Any] = [
                 "name": recipe.name!,
                 "imageString": "",
@@ -60,13 +54,12 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 storageProfileRef.downloadURL(completion: { (url, error) in
                     if let metaImageUrl = url?.absoluteString{
                         recipeDict["imageString"] = metaImageUrl
-                        Database.database().reference().child("users").child("recipes").child(user.uid).updateChildValues(recipeDict)
+                        
+                        //Save recipe to firebase realtime database
+                        Database.database().reference().child("users").child("recipes").child(user.uid).childByAutoId().setValue(recipeDict)
                     }
                 })
             })
-           //collection.addDocument(data: recipeDict)
-            documentRef.setData(recipeDict)
-            
         }
     }
     
@@ -85,14 +78,20 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
 
-    /*
+    @IBAction func goToStepByStep(_ sender: Any) {
+        performSegue(withIdentifier: "goToStepByStep", sender: self) // Segue to step by step page
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if let destination = segue.destination as? StepByStepViewController {
+            destination.recipe = recipe!
+        }
     }
-    */
+    
 
 }

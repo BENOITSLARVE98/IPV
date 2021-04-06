@@ -8,17 +8,32 @@ import UIKit
 import Foundation
 
 extension DiscoverViewController {
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //Set API search string to search bar text
+        if (!searchText.isEmpty) {
+            searchWord = searchText
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        recipes = [Recipe]() //Clear Recipes list before getting new ones
+        getRecipesFromApi(tag: tags, searchWord: searchWord)
+        DispatchQueue.main.async {
+            self.recipeCollectionView.reloadData()
+        }
+    }
+    
 
-    func getRecipesFromApi() {
-        
-        let tags = ""
+    func getRecipesFromApi(tag: String, searchWord: String) {
         
         let headers = [
             "x-rapidapi-host": "tasty.p.rapidapi.com",
             "x-rapidapi-key": "59d338597cmsh4f789cced9df6a2p1b0e7fjsna39bda851ccd"
         ]
         
-        let request = NSMutableURLRequest(url: NSURL(string: "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=\(tags)")! as URL,
+        let request = NSMutableURLRequest(url: NSURL(string: "https://tasty.p.rapidapi.com/recipes/list?from=0&size=20&tags=\(tags)&q=\(searchWord)")! as URL,
                                           cachePolicy: .useProtocolCachePolicy,
                                           timeoutInterval: 10.0)
         request.httpMethod = "GET"
