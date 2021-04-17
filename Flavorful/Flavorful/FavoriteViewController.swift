@@ -18,6 +18,8 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet var profileEmailLabel: UILabel!
     
     var recipes = [Recipe]()
+    var index = 0
+    let mySender = "Favorite"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,18 +52,41 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
         let size:CGFloat = (favoriteCollectionView.frame.size.width - space) / 2.0
         return CGSize(width: size, height: size)
     }
+    
+    //Recipe item selected
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        index = indexPath.row
+        performSegue(withIdentifier: "GoToDetailsPage", sender: self) // Segue to Details page
+    }
 
     
     func retrieveProfileInfo() {
+    
         if let user = Auth.auth().currentUser {
-            let db = Database.database().reference().child("users").child(user.uid)
-            
-            db.observe(DataEventType.value, with: { (snapshot) in
-                let userInfo = snapshot.value as? [String : AnyObject] ?? [:]
-                self.profileNameLabel.text = userInfo["name"] as? String
-                self.profileEmailLabel.text = userInfo["email"] as? String
-              })
+            Database.database().reference()
+                .child("users").child(user.uid).observe(DataEventType.value, with: { (snapshot) in
+                    guard let values = snapshot.value as? [String: Any] else {
+                        return
+                    }
+                    
+                    self.profileNameLabel.text = values["name"] as? String
+                    self.profileEmailLabel.text = values["email"] as? String
+                    let imageUrl = values["profileImageUrl"] as? String
+                    
+                    let storageRef = Storage.storage().reference(forURL: imageUrl!)
+                    storageRef.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
+                        if let _error = error{
+                            print(_error)
+                        } else {
+                            if let _data  = data {
+                                self.profileImageView.image = UIImage(data: _data)
+                            }
+                        }
+                    }
+                })
         }
+        
+        
     }
     
     
@@ -93,19 +118,18 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     
-    /*
+ 
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let destination = segue.destination as? DetailsViewController {
+            destination.recipe = recipes[index] // send one recipe card object to DetailsViewController based on the user's selection
+            destination.senderReceived = mySender
+        }
     }
-    */
 
 }
-
-
 
 
 
@@ -124,3 +148,5 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
 //                    print("Document does not exist")
 //                }
 //            })
+
+

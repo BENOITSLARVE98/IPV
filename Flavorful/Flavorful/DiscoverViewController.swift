@@ -9,23 +9,67 @@ import UIKit
 class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate{
     
 
-    @IBOutlet var filterButtons: UIButton!
+
+    @IBOutlet var filterButtons: [UIButton]!
     @IBOutlet var recipeCollectionView: UICollectionView!
     @IBOutlet var containerView: UIView!
     @IBOutlet var searchBar: UISearchBar!
     
     var recipes = [Recipe]()
     var index = 0
+    let mySender = "Discover"
     
-    var tags = ""
-    var searchWord = ""
+    var searchedKey = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        getRecipesFromApi(tag: tags,searchWord: searchWord)
+        //Load popular recipe feed
+        getRecipesFromApi(tag: "under_30_minutes",searchWord: "")
+    }
     
+    @IBAction func setupFiltersBtn(_ sender: UIButton) {
+        switch (sender as AnyObject).tag {
+        case 0: //Popular
+            recipes = [Recipe]() //Clear Recipes list before getting new ones
+            getRecipesFromApi(tag: "under_30_minutes", searchWord: "")
+            self.recipeCollectionView.reloadData()
+            //sender.tintColor = UIColor.white
+            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+        
+        case 1: //Indian
+            recipes = [Recipe]() //Clear Recipes list before getting new ones
+            getRecipesFromApi(tag: "indian", searchWord: "")
+            self.recipeCollectionView.reloadData()
+            //sender.tintColor = UIColor.white
+            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+        case 2: //Caribbean
+            recipes = [Recipe]() //Clear Recipes list before getting new ones
+            getRecipesFromApi(tag: "caribbean", searchWord: "")
+            self.recipeCollectionView.reloadData()
+            //sender.tintColor = UIColor.white
+            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+        case 3: //African
+            recipes = [Recipe]() //Clear Recipes list before getting new ones
+            getRecipesFromApi(tag: "african", searchWord: "")
+            self.recipeCollectionView.reloadData()
+            //sender.tintColor = UIColor.white
+            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+        case 4: //Mexican
+            recipes = [Recipe]() //Clear Recipes list before getting new ones
+            getRecipesFromApi(tag: "mexican", searchWord: "")
+            self.recipeCollectionView.reloadData()
+            //sender.tintColor = UIColor.white
+            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+        case 5: //German
+            recipes = [Recipe]() //Clear Recipes list before getting new ones
+            getRecipesFromApi(tag: "german", searchWord: "")
+            self.recipeCollectionView.reloadData()
+            //sender.tintColor = UIColor.white
+            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+        default:
+            print("")
+        }
     }
     
     //COLLECTION VIEW SETUP
@@ -65,6 +109,7 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DetailsViewController {
             destination.recipe = recipes[index] // send one recipe card object to DetailsViewController based on the user's selection
+            destination.senderReceived = mySender
         }
     }
 

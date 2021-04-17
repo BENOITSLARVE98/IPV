@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class ProfileViewController: UIViewController {
 
@@ -27,16 +28,30 @@ class ProfileViewController: UIViewController {
     }
     
     func retrieveProfileInfo() {
+        
         if let user = Auth.auth().currentUser {
-            let db = Database.database().reference().child("users").child(user.uid)
-            
-            db.observe(DataEventType.value, with: { (snapshot) in
-                let userInfo = snapshot.value as? [String : AnyObject] ?? [:]
-                self.profileNameLabel.text = userInfo["name"] as? String
-                self.fullNameText.text = userInfo["name"] as? String
-                self.emailText.text = userInfo["email"] as? String
-                
-              })
+            Database.database().reference()
+                .child("users").child(user.uid).observe(DataEventType.value, with: { (snapshot) in
+                    guard let values = snapshot.value as? [String: Any] else {
+                        return
+                    }
+                    
+                    self.profileNameLabel.text = values["name"] as? String
+                    self.fullNameText.text = values["name"] as? String
+                    self.emailText.text = values["email"] as? String
+                    let imageUrl = values["profileImageUrl"] as? String
+                    
+                    let storageRef = Storage.storage().reference(forURL: imageUrl!)
+                    storageRef.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
+                        if let _error = error{
+                            print(_error)
+                        } else {
+                            if let _data  = data {
+                                self.profileImageView.image = UIImage(data: _data)
+                            }
+                        }
+                    }
+                })
         }
     }
     
@@ -69,18 +84,83 @@ class ProfileViewController: UIViewController {
         }
         
     }
+    
+    @IBAction func editPasswordBtn(_ sender: Any) {
         
+        //Create the alert controller.
+        let alert = UIAlertController(title: "Enter new Password", message: nil, preferredStyle: .alert)
+        
+        //Add actions
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let saveAction = (UIAlertAction(title: "Save", style: .default, handler: { (action) -> Void in
+            //            //Save action clicked go back to login screen
+            //            self.performSegue(withIdentifier: "initialScreen", sender: self)
+        }))
+        
+        alert.addAction(saveAction)
+        
+        //Add the new password text field.
+        alert.addTextField { (textField) in
+            textField.text = ""
+            saveAction.isEnabled = false
+            
+            NotificationCenter.default.addObserver(forName: UITextField.textDidChangeNotification, object: textField, queue: OperationQueue.main) { (notification) in
+                //saveAction.isEnabled = textField.text!.count > 0
+                let validator = DataValidation()
+                saveAction.isEnabled = validator.isValidPassword(password: textField.text!) // Only allow save option if password can be validated
+                //Update firebase with new validated password
+                let user = Auth.auth().currentUser;
+                user?.updatePassword(to: (textField.text!), completion: {(error) in
+                    if error == nil {
+                    }
+                })
+                
+            }
+            
+        }
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
         
     @IBAction func deleteUser(_ sender: Any) {
         let user = Auth.auth().currentUser;
+        
+        //Delete User Authentication
         user?.delete(completion: {(error) in
-            if error == nil{
+            if error == nil {
                 //Go back to login screen
                 self.performSegue(withIdentifier: "initialScreen", sender: self)
             }
         })
         
+        //Delete All other information saved under current user
+        //Delete current user recipes
+        Database.database().reference().child("recipes").child(user!.uid).removeValue()
+        //Delete current user
+        Database.database().reference().child("users").child(user!.uid).removeValue()
+
+        //Delete curent user profile image
+        let storageRef = Storage.storage().reference()
+        storageRef.child("profileImages").child(user!.uid).delete(completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+                // File deleted successfully
+            }
+        })
+        //Delete current user recipe images
+        storageRef.child("recipeImages").child(user!.uid).delete(completion: { error in
+            if let error = error {
+                print(error)
+            } else {
+                // File deleted successfully
+            }
+        })
     }
+    
     
     @IBAction func signOut(_ sender: Any) {
         let authManager = AuthManager()
@@ -114,16 +194,6 @@ class ProfileViewController: UIViewController {
                 result = false
             }
         }
-        //Password
-//        if let password = passwordText.text {
-//            if validator.isValidPassword(password: password){
-//                //Save
-//                profilePassword = password
-//            } else {
-//                validator.validationError(errorMessage: "Invalid Passsowrd", field: passwordText)
-//                result = false
-//            }
-//        }
         return result
     }
     
@@ -141,3 +211,4 @@ class ProfileViewController: UIViewController {
     */
 
 }
+

@@ -40,7 +40,7 @@ class AuthManager {
                         if let metaImageUrl = url?.absoluteString{
                             dict["profileImageUrl"] = metaImageUrl
                             //Save user to firebase realtime database
-                            Database.database().reference().child("users").child(user.uid).updateChildValues(dict)
+                            Database.database().reference().child("users").child(user.uid).setValue(dict)
                         }
                     })
                                           
@@ -50,10 +50,6 @@ class AuthManager {
                 completionBlock(false)
             }
         }
-    }
-    
-    func saveImageToCloud(data: Data, dict: [String: Any]) {
-        
     }
     
     
