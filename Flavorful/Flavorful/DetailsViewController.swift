@@ -115,7 +115,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                         recipeDict["imageString"] = metaImageUrl
                         
                         //Save recipe to firebase realtime database
-                        Database.database().reference().child("users").child("recipes").child(user.uid).childByAutoId().setValue(recipeDict)
+                        //Database.database().reference().child("users").child("recipes").child(user.uid).childByAutoId().setValue(recipeDict)
                     }
                 })
             })

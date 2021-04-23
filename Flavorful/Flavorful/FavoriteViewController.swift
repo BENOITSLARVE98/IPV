@@ -25,7 +25,7 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        retrieveProfileInfo()
+        displayUserInfo()
         retrieveRecipesSaved()
     }
     
@@ -60,61 +60,66 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
     
-    func retrieveProfileInfo() {
-    
+    func displayUserInfo() {
+        
+        //Retrieve user profile data from Firestore
         if let user = Auth.auth().currentUser {
-            Database.database().reference()
-                .child("users").child(user.uid).observe(DataEventType.value, with: { (snapshot) in
-                    guard let values = snapshot.value as? [String: Any] else {
-                        return
-                    }
-                    
-                    self.profileNameLabel.text = values["name"] as? String
-                    self.profileEmailLabel.text = values["email"] as? String
-                    let imageUrl = values["profileImageUrl"] as? String
-                    
-                    let storageRef = Storage.storage().reference(forURL: imageUrl!)
-                    storageRef.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
-                        if let _error = error{
-                            print(_error)
-                        } else {
-                            if let _data  = data {
-                                self.profileImageView.image = UIImage(data: _data)
-                            }
+            Firestore.firestore().collection("users").document(user.uid).addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                
+                //Display user data
+                self.profileNameLabel.text = data["name"] as? String
+                self.profileEmailLabel.text = data["email"] as? String
+                let imageUrl = data["profileImageUrl"] as? String
+                
+                let storageRef = Storage.storage().reference(forURL: imageUrl!)
+                storageRef.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
+                    if let _error = error{
+                        print(_error)
+                    } else {
+                        if let _data  = data {
+                            self.profileImageView.image = UIImage(data: _data)
                         }
                     }
-                })
+                }
+            }
         }
-        
         
     }
     
     
     func retrieveRecipesSaved() {
         
-        if let user = Auth.auth().currentUser {
-            Database.database().reference()
-                .child("users").child("recipes").child(user.uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-                    guard let values = snapshot.value as? [String: Any] else {
-                        return
-                    }
-                    for (_, value) in values {
-                        guard let recipe = value as? [String: Any],
-                              let name = recipe["name"] as? String,
-                              let imageString = recipe["imageString"] as? String,
-                              let videoUrl = recipe["videoUrl"] as? String,
-                              let numbersArray = recipe["numbersArray"] as? [Int],
-                              let instructionsArray = recipe["instructionsArray"] as? [String],
-                              let ingredient = recipe["ingredient"] as? [String] else {
-                            continue
-                        }
-                        self.recipes.append(Recipe(name: name, imageString: imageString, videoUrl: videoUrl, numbersArray: numbersArray, instructionsArray: instructionsArray, ingredient: ingredient))
-                    }
-                    DispatchQueue.main.async {
-                        self.favoriteCollectionView.reloadData()
-                    }
-                })
-        }
+//        if let user = Auth.auth().currentUser {
+//            Database.database().reference()
+//                .child("users").child("recipes").child(user.uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
+//                    guard let values = snapshot.value as? [String: Any] else {
+//                        return
+//                    }
+//                    for (_, value) in values {
+//                        guard let recipe = value as? [String: Any],
+//                              let name = recipe["name"] as? String,
+//                              let imageString = recipe["imageString"] as? String,
+//                              let videoUrl = recipe["videoUrl"] as? String,
+//                              let numbersArray = recipe["numbersArray"] as? [Int],
+//                              let instructionsArray = recipe["instructionsArray"] as? [String],
+//                              let ingredient = recipe["ingredient"] as? [String] else {
+//                            continue
+//                        }
+//                        self.recipes.append(Recipe(name: name, imageString: imageString, videoUrl: videoUrl, numbersArray: numbersArray, instructionsArray: instructionsArray, ingredient: ingredient))
+//                    }
+//                    DispatchQueue.main.async {
+//                        self.favoriteCollectionView.reloadData()
+//                    }
+//                })
+//        }
     }
     
     

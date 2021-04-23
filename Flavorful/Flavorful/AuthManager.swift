@@ -7,61 +7,90 @@
 
 import Foundation
 import Firebase
-import FirebaseDatabase
 
 class AuthManager {
     
-    var convertedImageData: Data!
-    var profileName : String!
+    var dict = [String: Any]()
+    //var convertedImageData: Data!
     
-    func createUser(email: String, password: String, completionBlock: @escaping (_ success: Bool) -> Void) {
+    func createUser(email: String, password: String, image: UIImage, name: String, completionBlock: @escaping (_ success: Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
-            //Save user to Firebase Realtime DB
+            
             if let user = authResult?.user {
-                var dict: Dictionary<String, Any> = [
-                    "uid": user.uid,
-                    "email": user.email as Any,
-                    "name": self.profileName!,
-                    "profileImageUrl": ""
-                ]
-                //Get Firebase reference to Save profile image to Storage
-                let storageRef = Storage.storage().reference()
-                let storageProfileRef = storageRef.child("profileImages").child(user.uid)
                 
-                let metaData = StorageMetadata()
-                metaData.contentType = "image/jpeg"
+                //Save user to firestore user collection
+                self.saveUser(email: user.email!, image: image, name: name)
                 
-                //Save image data to firebase Stoarge
-                storageProfileRef.putData(self.convertedImageData, metadata: metaData, completion: { (storageMetaData, error) in
-                    if error != nil {
-                        return
-                    }
-                    storageProfileRef.downloadURL(completion: { (url, error) in
-                        if let metaImageUrl = url?.absoluteString{
-                            dict["profileImageUrl"] = metaImageUrl
-                            //Save user to firebase realtime database
-                            Database.database().reference().child("users").child(user.uid).setValue(dict)
-                        }
-                    })
-                                          
-                })
                 completionBlock(true)
             } else {
                 completionBlock(false)
             }
+            
         }
     }
     
-    
-    func saveImageAndName(image: UIImage, name: String) {
-        //Convert image to jpeg Data
-        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
-            return
+    func saveUser(email: String, image: UIImage, name: String) {
+        if let user = Auth.auth().currentUser {
+            
+            self.dict = [
+                "uid": user.uid,
+                "email": email as Any,
+                "name": name,
+                "profileImageUrl": ""
+            ]
+            
+            //Save user info to firestore user collection
+            Firestore.firestore().collection("users").document(user.uid).setData(self.dict) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
+            
+            saveImage(image: image)
         }
-        convertedImageData = imageData
-        profileName = name
     }
     
+    func saveImage(image: UIImage) {
+        
+        if let user = Auth.auth().currentUser {
+            
+            //Get Firebase Storage reference to Save profile image
+            let storageRef = Storage.storage().reference()
+            let storageProfileRef = storageRef.child("profileImages").child(user.uid)
+            
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpeg"
+            
+            //Convert image to jpeg Data
+            guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+                return
+            }
+            
+            //Save image data to firebase Storage
+            storageProfileRef.putData(imageData, metadata: metaData, completion: { (storageMetaData, error) in
+                if error != nil {
+                    return
+                }
+                storageProfileRef.downloadURL(completion: { (url, error) in
+                    if let metaImageUrl = url?.absoluteString{
+                        self.dict["profileImageUrl"] = metaImageUrl
+                        //Save user to firestore user collection
+                        Firestore.firestore().collection("users").document(user.uid).updateData(self.dict) { err in
+                            if let err = err {
+                                print("Error writing document: \(err)")
+                            } else {
+                                print("Document successfully written!")
+                            }
+                        }
+                    }
+                })
+                
+            })
+        }
+        
+    }
     
     
     func signIn(email: String, pass: String, completionBlock: @escaping (_ success: Bool) -> Void) {
@@ -96,3 +125,59 @@ class AuthManager {
 
 }
 
+
+
+
+//User profile dict
+//            if let user = authResult?.user {
+//                var dict: [String: Any] = [
+//                    "uid": user.uid,
+//                    "email": user.email as Any,
+//                    "name": name,
+//                    "profileImageUrl": ""
+//                ]
+//
+//                completionBlock(true)
+//            } else {
+//                completionBlock(false)
+//            }
+
+
+//    func saveImageToFirebase() {
+//        //Get Firebase reference to Save profile image to Storage
+//        let storageRef = Storage.storage().reference()
+//        let storageProfileRef = storageRef.child("profileImages").child(user.uid)
+//
+//        let metaData = StorageMetadata()
+//        metaData.contentType = "image/jpeg"
+//
+//        //Save image data to firebase Storage
+//        storageProfileRef.putData(self.convertedImageData, metadata: metaData, completion: { (storageMetaData, error) in
+//            if error != nil {
+//                return
+//            }
+//            storageProfileRef.downloadURL(completion: { (url, error) in
+//                if let metaImageUrl = url?.absoluteString{
+//                    dict["profileImageUrl"] = metaImageUrl
+//                    //Save user to firestore user collection
+//                    Firestore.firestore().collection("users").document(user.uid).setData(dict) { err in
+//                        if let err = err {
+//                            print("Error writing document: \(err)")
+//                        } else {
+//                            print("Document successfully written!")
+//                        }
+//                    }
+//                }
+//            })
+//
+//        })
+//    }
+    
+    
+//    func saveImage(image: UIImage) {
+//        //Convert image to jpeg Data
+//        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
+//            return
+//        }
+//        convertedImageData = imageData
+//    }
