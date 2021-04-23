@@ -78,8 +78,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let user = Auth.auth().currentUser;
         if validateAllFields() == true {
             
+            
             //Updates Name and Email
-            if let name = profileName, let email = profileEmail, let image = profileImage  {
+            if let name = profileName, let email = profileEmail, let image = profileImage {
 
                 //Name
                 let dict: Dictionary<String, Any> = [
@@ -96,7 +97,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     }
                 })
                 Firestore.firestore().collection("users").document(user!.uid).updateData(dict)
+                
+                //Image
+                authManager.saveImage(image: image)
             }
+            
+            
             //Go back
             navigationController?.popViewController(animated: true)
         }

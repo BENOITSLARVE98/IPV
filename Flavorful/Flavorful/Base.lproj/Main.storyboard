@@ -327,9 +327,7 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="editProfileBtn:" destination="gyn-Ow-KAx" eventType="touchUpInside" id="cNL-jA-XPU"/>
-                                    <action selector="resetPwdBtn:" destination="kgC-hA-IqU" eventType="touchUpInside" id="23Y-1T-0nV"/>
-                                    <segue destination="pLI-vp-EM8" kind="show" id="PT6-hd-Gyt"/>
+                                    <segue destination="pLI-vp-EM8" kind="show" id="fPi-Vd-JP7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -989,6 +987,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="fPi-Vd-JP7"/>
         <segue reference="6e0-VW-9qp"/>
         <segue reference="Nqw-xT-zQS"/>
         <segue reference="Du5-im-ria"/>

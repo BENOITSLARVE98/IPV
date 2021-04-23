@@ -26,13 +26,9 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
 
         // Do any additional setup after loading the view.
         displayUserInfo()
-        retrieveRecipesSaved()
+        //retrieveRecipesSaved()
     }
     
-    
-    @IBAction func editProfileBtn(_ sender: UIButton) {
-        
-    }
     
     //COLLECTION VIEW SETUP
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
