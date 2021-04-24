@@ -9,6 +9,7 @@ import Foundation
 import FirebaseFirestore
 import FirebaseStorage
 import Firebase
+import AVKit
 
 class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -42,6 +43,20 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    @IBAction func playVideo(_ sender: Any) {
+        playVideoPlayer()
+    }
+    
+    func playVideoPlayer() {
+        let videoUrl = URL(string: recipe.videoUrl!)
+        let player = AVPlayer(url: videoUrl!)
+        let vc = AVPlayerViewController()
+        vc.player = player
+
+        present(vc, animated: true) {
+            vc.player?.play()
+        }
+    }
     
     
     @IBAction func saveOrDeleteRecipe(_ sender: UIBarButtonItem) {
@@ -59,6 +74,7 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         }
     }
+    
     
     func deleteRecipe() {
         //Delete selected recipe from Firebase

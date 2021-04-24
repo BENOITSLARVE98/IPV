@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -14,7 +15,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Flavorful" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AppIconss" translatesAutoresizingMaskIntoConstraints="NO" id="3UU-PG-p50">
@@ -113,7 +114,7 @@
             <objects>
                 <viewController id="e4M-hE-Y4E" customClass="SignupViewController" customModule="Flavorful" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nbW-5r-BEO">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWM-4I-jQv">
@@ -255,11 +256,11 @@
             <objects>
                 <viewController id="gyn-Ow-KAx" customClass="FavoriteViewController" customModule="Flavorful" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vz4-4I-G0T">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WZn-dN-yvb">
-                                <rect key="frame" x="0.0" y="200" width="414" height="559"/>
+                                <rect key="frame" x="0.0" y="288" width="414" height="525"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="AMu-2e-e8J">
                                     <size key="itemSize" width="128" height="128"/>
@@ -301,26 +302,26 @@
                                 </connections>
                             </collectionView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="4Ag-dA-353">
-                                <rect key="frame" x="169" y="20" width="76" height="57"/>
+                                <rect key="frame" x="169" y="108" width="76" height="61"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" image="YES" selected="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0U-xS-V4X">
-                                <rect key="frame" x="169" y="85" width="76" height="21"/>
+                                <rect key="frame" x="169" y="177" width="76" height="22.5"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.34735313000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmr-it-wMK">
-                                <rect key="frame" x="99" y="114" width="216" height="21"/>
+                                <rect key="frame" x="99" y="207.5" width="216" height="22.5"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.34735313000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTe-vS-2Cl">
-                                <rect key="frame" x="99" y="143" width="216" height="36"/>
+                                <rect key="frame" x="99" y="238" width="216" height="38.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Edit Profile">
@@ -378,7 +379,7 @@
             <objects>
                 <viewController id="pLI-vp-EM8" customClass="ProfileViewController" customModule="Flavorful" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9xl-fH-ICQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t4i-TH-aqM">
@@ -422,20 +423,20 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Cke-ms-xT9">
-                                <rect key="frame" x="169" y="20" width="75" height="57"/>
+                                <rect key="frame" x="169" y="108" width="75" height="23"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" image="YES" selected="YES"/>
                                     <bool key="isElement" value="YES"/>
                                 </accessibility>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7F-i8-RUo">
-                                <rect key="frame" x="169" y="86" width="75" height="21"/>
+                                <rect key="frame" x="169" y="140" width="75" height="8.5"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.34735313000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XDT-41-W4a">
-                                <rect key="frame" x="98" y="115" width="217" height="36"/>
+                                <rect key="frame" x="98" y="156.5" width="217" height="14.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="Edit Password">
@@ -511,11 +512,11 @@
             <objects>
                 <viewController id="YcI-dp-Dme" customClass="DiscoverViewController" customModule="Flavorful" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jy1-sD-mln">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eD3-3A-RPd">
-                                <rect key="frame" x="0.0" y="144" width="414" height="615"/>
+                                <rect key="frame" x="0.0" y="232" width="414" height="581"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" sectionInsetReference="safeArea" id="hyn-Ov-shH">
                                     <size key="itemSize" width="128" height="128"/>
@@ -524,11 +525,11 @@
                                     <inset key="sectionInset" minX="10" minY="30" maxX="10" maxY="30"/>
                                 </collectionViewFlowLayout>
                                 <view key="backgroundView" contentMode="scaleToFill" id="6Kz-II-7tb">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="615"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="581"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1z-Ft-gty" customClass="CircularProgressView" customModule="Flavorful" customModuleProvider="target">
-                                            <rect key="frame" x="157" y="261" width="100" height="93"/>
+                                            <rect key="frame" x="157" y="246.5" width="100" height="88"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         </view>
                                     </subviews>
@@ -585,7 +586,7 @@
                                 </connections>
                             </collectionView>
                             <searchBar contentMode="redraw" text="Search Something" translatesAutoresizingMaskIntoConstraints="NO" id="qc8-rz-mzP">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <color key="tintColor" red="0.85882352939999995" green="0.31372549020000001" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <offsetWrapper key="searchTextPositionAdjustment" horizontal="100" vertical="0.0"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
@@ -598,13 +599,13 @@
                                 </connections>
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTER BY CUISINE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uw0-hr-9TD">
-                                <rect key="frame" x="10" y="56" width="146" height="23"/>
+                                <rect key="frame" x="10" y="144" width="146" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="owx-Ev-yAr">
-                                <rect key="frame" x="10" y="80" width="60" height="30"/>
+                                <rect key="frame" x="10" y="168" width="60" height="30"/>
                                 <state key="normal" title="Popular">
                                     <color key="titleColor" red="0.85882352941176465" green="0.31372549019607843" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -613,35 +614,35 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gEq-lR-e2P">
-                                <rect key="frame" x="10" y="112" width="60" height="30"/>
+                                <rect key="frame" x="10" y="200" width="60" height="30"/>
                                 <state key="normal" title="African"/>
                                 <connections>
                                     <action selector="setupFiltersBtn:" destination="YcI-dp-Dme" eventType="touchUpInside" id="2VE-R1-W4C"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6J-io-M29">
-                                <rect key="frame" x="78" y="80" width="60" height="30"/>
+                                <rect key="frame" x="78" y="168" width="60" height="30"/>
                                 <state key="normal" title="Indian"/>
                                 <connections>
                                     <action selector="setupFiltersBtn:" destination="YcI-dp-Dme" eventType="touchUpInside" id="PFq-Y1-eTG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2tD-qk-L2I">
-                                <rect key="frame" x="78" y="112" width="60" height="30"/>
+                                <rect key="frame" x="78" y="200" width="60" height="30"/>
                                 <state key="normal" title="Mexican"/>
                                 <connections>
                                     <action selector="setupFiltersBtn:" destination="YcI-dp-Dme" eventType="touchUpInside" id="Fym-4B-XC8"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTq-wp-Vuv">
-                                <rect key="frame" x="146" y="80" width="72" height="30"/>
+                                <rect key="frame" x="146" y="168" width="72" height="30"/>
                                 <state key="normal" title="Caribbean"/>
                                 <connections>
                                     <action selector="setupFiltersBtn:" destination="YcI-dp-Dme" eventType="touchUpInside" id="O76-mP-zTb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGU-ZZ-dJO">
-                                <rect key="frame" x="146" y="112" width="60" height="30"/>
+                                <rect key="frame" x="146" y="200" width="60" height="30"/>
                                 <state key="normal" title="German"/>
                                 <connections>
                                     <action selector="setupFiltersBtn:" destination="YcI-dp-Dme" eventType="touchUpInside" id="JqX-AW-LNn"/>
@@ -740,7 +741,7 @@
             <objects>
                 <viewController id="kgC-hA-IqU" customClass="ForgotPwdViewController" customModule="Flavorful" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lbi-Sc-WBA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="AppIconss" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-J9-n6O">
@@ -819,7 +820,7 @@
             <objects>
                 <viewController id="tVz-hc-npU" customClass="DetailsViewController" customModule="Flavorful" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jCQ-y8-jx3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1db-BR-2UT">
@@ -883,6 +884,20 @@
                                     <action selector="resetPwdBtn:" destination="kgC-hA-IqU" eventType="touchUpInside" id="AXy-An-CDF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UM8-mu-MZR">
+                                <rect key="frame" x="192" y="240" width="30" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" backgroundImage="play.fill" catalog="system">
+                                    <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
+                                </state>
+                                <connections>
+                                    <action selector="playVideo:" destination="tVz-hc-npU" eventType="touchUpInside" id="Ub4-wz-0nz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TJ3-Iw-5ka"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -914,7 +929,7 @@
             <objects>
                 <tableViewController id="XDl-bx-cDr" customClass="StepByStepViewController" customModule="Flavorful" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sls-mJ-unk">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -987,10 +1002,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="fPi-Vd-JP7"/>
-        <segue reference="6e0-VW-9qp"/>
+        <segue reference="Zmr-Zs-pnD"/>
         <segue reference="Nqw-xT-zQS"/>
-        <segue reference="Du5-im-ria"/>
+        <segue reference="Em6-0E-GE5"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.85882352939999995" green="0.31372549020000001" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
@@ -1000,6 +1014,7 @@
         <image name="lock" catalog="system" width="128" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

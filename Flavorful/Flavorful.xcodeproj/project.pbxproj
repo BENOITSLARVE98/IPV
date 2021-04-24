@@ -15,6 +15,7 @@
 		190F10F42612420C00FAB548 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190F10F32612420C00FAB548 /* TabBarViewController.swift */; };
 		190F1135261288B300FAB548 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190F1134261288B300FAB548 /* FavoriteViewController.swift */; };
 		190F113A261629D800FAB548 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 190F1139261629D700FAB548 /* ProfileViewController.swift */; };
+		191501E82634B1FC00C91FCB /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191501E72634B1FC00C91FCB /* ButtonExtension.swift */; };
 		1915DFA6260462CB007E54C5 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1915DFA5260462CB007E54C5 /* DiscoverViewController.swift */; };
 		1931AAE42605322E0019A09C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1931AAE32605322E0019A09C /* GoogleService-Info.plist */; };
 		1931AAEC260697BD0019A09C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1931AAEB260697BD0019A09C /* AuthManager.swift */; };
@@ -65,6 +66,7 @@
 		190F10F32612420C00FAB548 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		190F1134261288B300FAB548 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		190F1139261629D700FAB548 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		191501E72634B1FC00C91FCB /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		1915DFA5260462CB007E54C5 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		1931AAE32605322E0019A09C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1931AAEB260697BD0019A09C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				190F1139261629D700FAB548 /* ProfileViewController.swift */,
 				190F10F32612420C00FAB548 /* TabBarViewController.swift */,
 				190F104A260FBE7400FAB548 /* DetailsViewController.swift */,
+				191501E72634B1FC00C91FCB /* ButtonExtension.swift */,
 				19961A2B261A5FE8001B6CFD /* StepByStepCell.swift */,
 				190F104F260FC99D00FAB548 /* DetailsIngredientCell.swift */,
 				1915DFA5260462CB007E54C5 /* DiscoverViewController.swift */,
@@ -461,6 +464,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191501E82634B1FC00C91FCB /* ButtonExtension.swift in Sources */,
 				190F103C260E4ECC00FAB548 /* RecipeCollectionViewCell.swift in Sources */,
 				19961A2C261A5FE8001B6CFD /* StepByStepCell.swift in Sources */,
 				1991F3912602710500B9768A /* LoginViewController.swift in Sources */,
