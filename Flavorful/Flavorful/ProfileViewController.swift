@@ -162,7 +162,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         Firestore.firestore().collection("users").document(user!.uid).delete()
         //Delete current user recipes
         //Database.database().reference().child("recipes").child(user!.uid).removeValue()
-
+        
         //Delete curent user profile image
         let storageRef = Storage.storage().reference()
         storageRef.child("profileImages").child(user!.uid).delete(completion: { error in

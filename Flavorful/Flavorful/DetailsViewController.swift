@@ -114,8 +114,16 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     if let metaImageUrl = url?.absoluteString{
                         recipeDict["imageString"] = metaImageUrl
                         
-                        //Save recipe to firebase realtime database
-                        //Database.database().reference().child("users").child("recipes").child(user.uid).childByAutoId().setValue(recipeDict)
+                        //Save recipe to firestore
+                        Firestore.firestore().collection("recipes").document(user.uid).setData(recipeDict)
+                        //Save recipe collection inside users collection
+//                        Firestore.firestore().collection("users").document(user.uid).collection("recipes").document(self.recipe.name!).setData(recipeDict) { err in
+//                            if let err = err {
+//                                print("Error writing document: \(err)")
+//                            } else {
+//                                print("Document successfully written!")
+//                            }
+//                        }
                     }
                 })
             })

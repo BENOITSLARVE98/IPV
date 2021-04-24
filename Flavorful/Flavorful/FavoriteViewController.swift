@@ -26,7 +26,7 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
 
         // Do any additional setup after loading the view.
         displayUserInfo()
-        //retrieveRecipesSaved()
+        getSavedRecipes()
     }
     
     
@@ -91,31 +91,36 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     
-    func retrieveRecipesSaved() {
+    func getSavedRecipes() {
         
-//        if let user = Auth.auth().currentUser {
-//            Database.database().reference()
-//                .child("users").child("recipes").child(user.uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-//                    guard let values = snapshot.value as? [String: Any] else {
-//                        return
-//                    }
-//                    for (_, value) in values {
-//                        guard let recipe = value as? [String: Any],
-//                              let name = recipe["name"] as? String,
-//                              let imageString = recipe["imageString"] as? String,
-//                              let videoUrl = recipe["videoUrl"] as? String,
-//                              let numbersArray = recipe["numbersArray"] as? [Int],
-//                              let instructionsArray = recipe["instructionsArray"] as? [String],
-//                              let ingredient = recipe["ingredient"] as? [String] else {
-//                            continue
-//                        }
-//                        self.recipes.append(Recipe(name: name, imageString: imageString, videoUrl: videoUrl, numbersArray: numbersArray, instructionsArray: instructionsArray, ingredient: ingredient))
-//                    }
-//                    DispatchQueue.main.async {
-//                        self.favoriteCollectionView.reloadData()
-//                    }
-//                })
-//        }
+        //Retrieve saved recipes from firestore
+        if let user = Auth.auth().currentUser {
+            Firestore.firestore().collection("recipes").document(user.uid).addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                
+                //Save data to recipe object
+                let name = data["name"] as? String
+                let imageString = data["imageString"] as? String
+                let videoUrl = data["videoUrl"] as? String
+                let numbersArray = data["numbersArray"] as? [Int]
+                let instructionsArray = data["instructionsArray"] as? [String]
+                let ingredient = data["ingredient"] as? [String]
+                
+                self.recipes.append(Recipe(name: name!, imageString: imageString!, videoUrl: videoUrl!, numbersArray: numbersArray!, instructionsArray: instructionsArray!, ingredient: ingredient!))
+                
+                DispatchQueue.main.async {
+                    self.favoriteCollectionView.reloadData()
+                }
+                
+            }
+        }
     }
     
     

@@ -65,10 +65,6 @@ class SignupViewController: UIViewController, UIImagePickerControllerDelegate, U
         let authManager = AuthManager()
         if validateAllFields() == true {
             
-//            //Send image and name to be saved to Firebase Storage
-//            if let image = profileImage, let name = profileName {
-//                authManager.saveImageAndName(image: image, name: name)
-//            }
             //Create user and Authenticate
             guard let email = profileEmail, let password = profilePassword, let image = profileImage, let name = profileName else { return }
             authManager.createUser(email: email, password: password, image: image, name: name) {[weak self] (success) in

@@ -11,7 +11,6 @@ import Firebase
 class AuthManager {
     
     var dict = [String: Any]()
-    //var convertedImageData: Data!
     
     func createUser(email: String, password: String, image: UIImage, name: String, completionBlock: @escaping (_ success: Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) {(authResult, error) in
@@ -124,60 +123,3 @@ class AuthManager {
     
 
 }
-
-
-
-
-//User profile dict
-//            if let user = authResult?.user {
-//                var dict: [String: Any] = [
-//                    "uid": user.uid,
-//                    "email": user.email as Any,
-//                    "name": name,
-//                    "profileImageUrl": ""
-//                ]
-//
-//                completionBlock(true)
-//            } else {
-//                completionBlock(false)
-//            }
-
-
-//    func saveImageToFirebase() {
-//        //Get Firebase reference to Save profile image to Storage
-//        let storageRef = Storage.storage().reference()
-//        let storageProfileRef = storageRef.child("profileImages").child(user.uid)
-//
-//        let metaData = StorageMetadata()
-//        metaData.contentType = "image/jpeg"
-//
-//        //Save image data to firebase Storage
-//        storageProfileRef.putData(self.convertedImageData, metadata: metaData, completion: { (storageMetaData, error) in
-//            if error != nil {
-//                return
-//            }
-//            storageProfileRef.downloadURL(completion: { (url, error) in
-//                if let metaImageUrl = url?.absoluteString{
-//                    dict["profileImageUrl"] = metaImageUrl
-//                    //Save user to firestore user collection
-//                    Firestore.firestore().collection("users").document(user.uid).setData(dict) { err in
-//                        if let err = err {
-//                            print("Error writing document: \(err)")
-//                        } else {
-//                            print("Document successfully written!")
-//                        }
-//                    }
-//                }
-//            })
-//
-//        })
-//    }
-    
-    
-//    func saveImage(image: UIImage) {
-//        //Convert image to jpeg Data
-//        guard let imageData = image.jpegData(compressionQuality: 0.5) else {
-//            return
-//        }
-//        convertedImageData = imageData
-//    }
