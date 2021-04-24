@@ -78,16 +78,28 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let user = Auth.auth().currentUser;
         if validateAllFields() == true {
             
+            //Update
+            if let image = profileImage {
+                //Image
+                authManager.saveImage(image: image)
+            }
             
-            //Updates Name and Email
-            if let name = profileName, let email = profileEmail, let image = profileImage {
-
+            if let name  = profileName {
                 //Name
-                let dict: Dictionary<String, Any> = [
-                    "name": name,
-                    "email": email,
+                let nameDict: Dictionary<String, Any> = [
+                    "name": name
                 ]
-                //Email
+                Firestore.firestore().collection("users").document(user!.uid).updateData(nameDict)
+            }
+            
+            if let email = profileEmail {
+                //Name
+                let emailDict: Dictionary<String, Any> = [
+                    "email": email //Email Firestore Collection
+                ]
+                Firestore.firestore().collection("users").document(user!.uid).updateData(emailDict)
+                
+                //Email Auth
                 user?.updateEmail(to: email, completion: { (error) in
                     if error != nil{
                         let message = "Something went wrong."
@@ -96,12 +108,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                         self.present(alertController, animated: true)
                     }
                 })
-                Firestore.firestore().collection("users").document(user!.uid).updateData(dict)
-                
-                //Image
-                authManager.saveImage(image: image)
             }
-            
             
             //Go back
             navigationController?.popViewController(animated: true)
