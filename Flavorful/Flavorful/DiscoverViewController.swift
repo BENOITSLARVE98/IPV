@@ -12,8 +12,8 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
 
     @IBOutlet var filterButtons: [UIButton]!
     @IBOutlet var recipeCollectionView: UICollectionView!
-    @IBOutlet var containerView: UIView!
     @IBOutlet var searchBar: UISearchBar!
+    @IBOutlet var progressBtn: UIButton!
     
     var recipes = [Recipe]()
     var index = 0
@@ -26,9 +26,13 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
 
         //Load popular recipe feed
         getRecipesFromApi(tag: "under_30_minutes",searchWord: "")
+        
     }
     
     @IBAction func setupFiltersBtn(_ sender: UIButton) {
+        
+        sender.flash()
+        
         switch (sender as AnyObject).tag {
         case 0: //Popular
             recipes = [Recipe]() //Clear Recipes list before getting new ones

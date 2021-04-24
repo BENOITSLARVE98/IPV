@@ -528,19 +528,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="581"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1z-Ft-gty" customClass="CircularProgressView" customModule="Flavorful" customModuleProvider="target">
-                                            <rect key="frame" x="157" y="246.5" width="100" height="88"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67t-CN-Lfd">
+                                            <rect key="frame" x="147" y="185" width="120" height="120"/>
+                                            <state key="normal" title="progressBtn" image="progressIcon">
+                                                <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="g1z-Ft-gty" firstAttribute="width" secondItem="6Kz-II-7tb" secondAttribute="width" multiplier="0.241546" id="FdK-O5-469"/>
-                                        <constraint firstItem="g1z-Ft-gty" firstAttribute="height" secondItem="6Kz-II-7tb" secondAttribute="height" multiplier="0.151745" id="WIx-Yp-gzO"/>
-                                        <constraint firstItem="g1z-Ft-gty" firstAttribute="leading" secondItem="6Kz-II-7tb" secondAttribute="leading" constant="157" id="ZsX-Sx-qPv"/>
-                                        <constraint firstItem="g1z-Ft-gty" firstAttribute="centerX" secondItem="6Kz-II-7tb" secondAttribute="centerX" id="d6Q-GQ-hq9"/>
-                                        <constraint firstAttribute="trailing" secondItem="g1z-Ft-gty" secondAttribute="trailing" constant="157" id="pwc-NK-ALX"/>
-                                        <constraint firstItem="g1z-Ft-gty" firstAttribute="centerY" secondItem="6Kz-II-7tb" secondAttribute="centerY" id="zQI-SG-2qD"/>
+                                        <constraint firstAttribute="trailing" secondItem="67t-CN-Lfd" secondAttribute="trailing" constant="147" id="HlQ-5z-vGs"/>
+                                        <constraint firstItem="67t-CN-Lfd" firstAttribute="top" secondItem="6Kz-II-7tb" secondAttribute="top" constant="185" id="Il1-Hf-Ocq"/>
+                                        <constraint firstItem="67t-CN-Lfd" firstAttribute="centerX" secondItem="6Kz-II-7tb" secondAttribute="centerX" id="b4M-3r-Sld"/>
+                                        <constraint firstAttribute="bottom" secondItem="67t-CN-Lfd" secondAttribute="bottom" constant="276" id="opG-Zt-VEv"/>
                                     </constraints>
                                 </view>
                                 <cells>
@@ -698,7 +699,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="magnifyingglass" catalog="system" id="7lA-ae-TXi"/>
                     <connections>
-                        <outlet property="containerView" destination="g1z-Ft-gty" id="nKy-LM-rRQ"/>
+                        <outlet property="progressBtn" destination="67t-CN-Lfd" id="BuW-yr-Uof"/>
                         <outlet property="recipeCollectionView" destination="eD3-3A-RPd" id="Ay7-Rw-FhP"/>
                         <outlet property="searchBar" destination="qc8-rz-mzP" id="p1n-bL-aqA"/>
                         <outletCollection property="filterButtons" destination="WGU-ZZ-dJO" collectionClass="NSMutableArray" id="Rmw-ME-ngc"/>
@@ -1015,6 +1016,7 @@
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="progressIcon" width="177" height="174"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

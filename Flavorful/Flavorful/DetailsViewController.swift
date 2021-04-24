@@ -77,29 +77,27 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func deleteRecipe() {
-        //Delete selected recipe from Firebase
         
-//        if let user = Auth.auth().currentUser {
-//            Database.database().reference()
-//                .child("users").child("recipes").child(user.uid).observeSingleEvent(of: DataEventType.value, with: { (snapshot) in
-//                    guard let values = snapshot.value as? [String: Any] else {
-//                        return
-//                    }
-//                    for (_, value) in values {
-//                        guard let recipe = value as? [String: Any],
-//                              let name = recipe["name"] as? String else {
-//                            continue
-//                        }
-//
-//                        //Delete recipe with the matching name
-//                        if name == self.recipeNameLabel.text {
-//                            //Delete recipe with matching name in Firebase
-//                            Database.database().reference().child("users").child("recipes").child(user.uid).removeValue()
-//                        }
-//                    }
-//                })
-//        }
-        
+        //Delete selected recipe from Firestore
+        if let user = Auth.auth().currentUser {
+            Firestore.firestore().collection("recipes").document(user.uid).addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                
+                //Save data to recipe object
+                let name = data["name"] as? String
+                if name == self.recipeNameLabel.text {
+                    //Delete recipe with matching name in Firestore
+                    Firestore.firestore().collection("recipes").document(user.uid).delete()
+                }
+            }
+        }
     }
     
     func saveRecipe() {

@@ -32,6 +32,11 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
     
     //COLLECTION VIEW SETUP
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if (self.recipes.count == 0) {
+            self.favoriteCollectionView.setEmptyMessage("No favorites to show :(")
+        } else {
+            self.favoriteCollectionView.restore()
+        }
         return recipes.count
     }
     
@@ -102,6 +107,9 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
                 }
                 guard let data = document.data() else {
                     print("Document data was empty.")
+                    //If recipe document is empty reset favorites view
+                    self.recipes = [Recipe]()
+                    self.favoriteCollectionView.reloadData()
                     return
                 }
                 
@@ -115,9 +123,7 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
                 
                 self.recipes.append(Recipe(name: name!, imageString: imageString!, videoUrl: videoUrl!, numbersArray: numbersArray!, instructionsArray: instructionsArray!, ingredient: ingredient!))
                 
-                DispatchQueue.main.async {
-                    self.favoriteCollectionView.reloadData()
-                }
+                self.favoriteCollectionView.reloadData()
                 
             }
         }
@@ -136,23 +142,5 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
 }
-
-
-
-//            let rootRef = Firestore.firestore()
-//            let documentRef = rootRef.collection("favoriteRecipes").document(user.uid)
-//
-//            documentRef.getDocument(completion: { (document, error) in
-//                if let document = document, document.exists {
-//                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//                    print("Document data: \(dataDescription)")
-//                    document.data()?.forEach { item in
-//
-//                    }
-//
-//                } else {
-//                    print("Document does not exist")
-//                }
-//            })
 
 
