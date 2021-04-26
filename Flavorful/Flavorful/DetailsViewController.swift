@@ -98,6 +98,10 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                 }
             }
         }
+        
+        //Delete recipe from local storage
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "recipe")
     }
     
     func saveRecipe() {
@@ -130,18 +134,20 @@ class DetailsViewController: UIViewController, UITableViewDelegate, UITableViewD
                         
                         //Save recipe to firestore
                         Firestore.firestore().collection("recipes").document(user.uid).setData(recipeDict)
-                        //Save recipe collection inside users collection
-//                        Firestore.firestore().collection("users").document(user.uid).collection("recipes").document(self.recipe.name!).setData(recipeDict) { err in
-//                            if let err = err {
-//                                print("Error writing document: \(err)")
-//                            } else {
-//                                print("Document successfully written!")
-//                            }
-//                        }
+                        
+                        //Save Recipe to local storage for offline use
+                        self.saveRecipeToLocalStorage()
                     }
                 })
             })
         }
+    }
+    
+    func saveRecipeToLocalStorage() {
+        let defaults = UserDefaults.standard
+        //Save recipe to data
+        let recipeData = try! NSKeyedArchiver.archivedData(withRootObject: recipe!, requiringSecureCoding: false)
+        defaults.set(recipeData, forKey: "recipe")
     }
     
     

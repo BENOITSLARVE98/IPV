@@ -34,7 +34,6 @@
 		19961A272618F1E9001B6CFD /* FavoriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19961A262618F1E9001B6CFD /* FavoriteCollectionViewCell.swift */; };
 		19961A2C261A5FE8001B6CFD /* StepByStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19961A2B261A5FE8001B6CFD /* StepByStepCell.swift */; };
 		19961A34261A60F9001B6CFD /* StepByStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19961A33261A60F9001B6CFD /* StepByStepViewController.swift */; };
-		19961A41261A7209001B6CFD /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19961A40261A7209001B6CFD /* CircularProgressView.swift */; };
 		29466C294C2D6C6993EAFD4D /* Pods_FlavorfulTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FAC10B34788BB1D1F4F3A1C /* Pods_FlavorfulTests.framework */; };
 		416E51BE51E7A2388E07A3C1 /* Pods_Flavorful_FlavorfulUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDDFC1C2324DFFC0FC5533E6 /* Pods_Flavorful_FlavorfulUITests.framework */; };
 		64DF41BCD991E9F0F16A4600 /* Pods_Flavorful.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3925A42F0C5E34176147AAB6 /* Pods_Flavorful.framework */; };
@@ -92,7 +91,6 @@
 		19961A262618F1E9001B6CFD /* FavoriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		19961A2B261A5FE8001B6CFD /* StepByStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepByStepCell.swift; sourceTree = "<group>"; };
 		19961A33261A60F9001B6CFD /* StepByStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepByStepViewController.swift; sourceTree = "<group>"; };
-		19961A40261A7209001B6CFD /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		3925A42F0C5E34176147AAB6 /* Pods_Flavorful.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flavorful.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3C2B7E52FC820C7528E5B3 /* Pods-Flavorful.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flavorful.debug.xcconfig"; path = "Target Support Files/Pods-Flavorful/Pods-Flavorful.debug.xcconfig"; sourceTree = "<group>"; };
 		4EDBA1EA95358C3450C445D5 /* Pods-Flavorful.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flavorful.release.xcconfig"; path = "Target Support Files/Pods-Flavorful/Pods-Flavorful.release.xcconfig"; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				1991F35526026CDB00B9768A /* AppDelegate.swift */,
 				1991F35726026CDB00B9768A /* SceneDelegate.swift */,
 				1991F35B26026CDB00B9768A /* Main.storyboard */,
-				19961A40261A7209001B6CFD /* CircularProgressView.swift */,
 				19961A33261A60F9001B6CFD /* StepByStepViewController.swift */,
 				19961A262618F1E9001B6CFD /* FavoriteCollectionViewCell.swift */,
 				190F1139261629D700FAB548 /* ProfileViewController.swift */,
@@ -487,7 +484,6 @@
 				190F1050260FC99D00FAB548 /* DetailsIngredientCell.swift in Sources */,
 				1991F39B2602719400B9768A /* ForgotPwdViewController.swift in Sources */,
 				190F1046260E619C00FAB548 /* Recipe.swift in Sources */,
-				19961A41261A7209001B6CFD /* CircularProgressView.swift in Sources */,
 				190F104B260FBE7400FAB548 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

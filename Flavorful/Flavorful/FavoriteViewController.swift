@@ -9,6 +9,7 @@ import UIKit
 import FirebaseFirestore
 import FirebaseStorage
 import Firebase
+import Reachability
 
 class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -17,6 +18,7 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet var profileNameLabel: UILabel!
     @IBOutlet var profileEmailLabel: UILabel!
     
+    let reachability = try! Reachability()
     var recipes = [Recipe]()
     var index = 0
     let mySender = "Favorite"
@@ -26,7 +28,7 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
 
         // Do any additional setup after loading the view.
         displayUserInfo()
-        getSavedRecipes()
+        setupReachability()
     }
     
     
@@ -95,8 +97,49 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
         
     }
     
+        func setupReachability() {
+            DispatchQueue.main.async {
+    
+                self.reachability.whenReachable = { reachability in
+                    if reachability.connection == .wifi || reachability.connection == .cellular {
+                        print("Reachable")
+                        self.getSavedRecipes()
+                    }
+                }
+                self.self.reachability.whenUnreachable = { _ in
+                    print("Not reachable")
+                    self.getLocalRecipes()
+                }
+    
+                do {
+                    try self.reachability.startNotifier()
+                } catch {
+                    print("Unable to start notifier")
+                }
+    
+            }
+    
+        }
+    
+    func getLocalRecipes() {
+        //Retrieve local recipes
+        let defaults = UserDefaults.standard
+        guard let recipeData = defaults.object(forKey: "recipe") as? Data else {
+            return
+        }
+        
+        // Use NSKeyedUnarchiver to convert Data / NSData back to recipe object
+        guard let localRecipe = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(recipeData) as? Recipe else {
+            return
+        }
+        
+        self.recipes = [Recipe]()
+        self.recipes.append(localRecipe)
+        self.favoriteCollectionView.reloadData()
+    }
     
     func getSavedRecipes() {
+        self.recipes = [Recipe]()
         
         //Retrieve saved recipes from firestore
         if let user = Auth.auth().currentUser {
@@ -127,6 +170,7 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
                 
             }
         }
+        
     }
     
     
@@ -142,5 +186,4 @@ class FavoriteViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
 }
-
 

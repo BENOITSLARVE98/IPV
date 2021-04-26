@@ -23,11 +23,12 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         //Load popular recipe feed
-        getRecipesFromApi(tag: "under_30_minutes",searchWord: "")
+        self.getRecipesFromApi(tag: "under_30_minutes",searchWord: "")
         
     }
+    
     
     @IBAction func setupFiltersBtn(_ sender: UIButton) {
         
@@ -38,39 +39,32 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
             recipes = [Recipe]() //Clear Recipes list before getting new ones
             getRecipesFromApi(tag: "under_30_minutes", searchWord: "")
             self.recipeCollectionView.reloadData()
-            //sender.tintColor = UIColor.white
-            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
         
         case 1: //Indian
             recipes = [Recipe]() //Clear Recipes list before getting new ones
             getRecipesFromApi(tag: "indian", searchWord: "")
             self.recipeCollectionView.reloadData()
-            //sender.tintColor = UIColor.white
-            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+
         case 2: //Caribbean
             recipes = [Recipe]() //Clear Recipes list before getting new ones
             getRecipesFromApi(tag: "caribbean", searchWord: "")
             self.recipeCollectionView.reloadData()
-            //sender.tintColor = UIColor.white
-            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+
         case 3: //African
             recipes = [Recipe]() //Clear Recipes list before getting new ones
             getRecipesFromApi(tag: "african", searchWord: "")
             self.recipeCollectionView.reloadData()
-            //sender.tintColor = UIColor.white
-            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+
         case 4: //Mexican
             recipes = [Recipe]() //Clear Recipes list before getting new ones
             getRecipesFromApi(tag: "mexican", searchWord: "")
             self.recipeCollectionView.reloadData()
-            //sender.tintColor = UIColor.white
-            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+
         case 5: //German
             recipes = [Recipe]() //Clear Recipes list before getting new ones
             getRecipesFromApi(tag: "german", searchWord: "")
             self.recipeCollectionView.reloadData()
-            //sender.tintColor = UIColor.white
-            //sender.backgroundColor = #colorLiteral(red: 0.8588235294, green: 0.3137254902, blue: 0.2901960784, alpha: 1)
+            
         default:
             print("")
         }
@@ -84,9 +78,6 @@ class DiscoverViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = recipeCollectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCell", for: indexPath) as! RecipeCollectionViewCell
         cell.recipeImageView.image = recipes[indexPath.row].image
-        //cell.recipeImage.layer.borderWidth = 2
-        //cell.recipeImage.layer.cornerRadius = 3
-        //cell.layer.cornerRadius = 3
         cell.recipeNameLabel.text = recipes[indexPath.row].name
         return cell
     }

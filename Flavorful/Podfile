@@ -7,10 +7,14 @@ target 'Flavorful' do
 
   # Pods for Flavorful
 
+
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  use_frameworks!
+  pod 'ReachabilitySwift'
+  pod 'Alamofire'
  
   target 'FlavorfulTests' do
     inherit! :search_paths
