@@ -9,9 +9,6 @@ import UIKit
 
 class StepByStepViewController: UITableViewController {
     
-//    var numbersArray = [Int]()
-//    var instructionsArray = [String]()
-    
     var recipe: Recipe!
 
     override func viewDidLoad() {

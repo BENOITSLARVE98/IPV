@@ -7,16 +7,17 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseDatabase
 import FirebaseStorage
+import FirebaseFirestore
 
-class ProfileViewController: UIViewController, UITextFieldDelegate {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var profileNameLabel: UILabel!
     @IBOutlet var fullNameText: UITextField!
     @IBOutlet var emailText: UITextField!
     
+    var profileImage: UIImage? = nil
     var profileName: String? = nil
     var profileEmail: String? = nil
     
@@ -24,51 +25,81 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        retrieveProfileInfo()
+        displayUserInfo()
+        
+        //Create tap gesture recognizer
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+
+        //Add it to the image view;
+        profileImageView.addGestureRecognizer(tapGesture)
+        //Make sure imageView can be interacted with by user
+        profileImageView.isUserInteractionEnabled = true
     }
     
-    func retrieveProfileInfo() {
+    func displayUserInfo() {
         
+        //Retrieve user profile data from Firestore
         if let user = Auth.auth().currentUser {
-            Database.database().reference()
-                .child("users").child(user.uid).observe(DataEventType.value, with: { (snapshot) in
-                    guard let values = snapshot.value as? [String: Any] else {
-                        return
-                    }
-                    
-                    self.profileNameLabel.text = values["name"] as? String
-                    self.fullNameText.text = values["name"] as? String
-                    self.emailText.text = values["email"] as? String
-                    let imageUrl = values["profileImageUrl"] as? String
-                    
-                    let storageRef = Storage.storage().reference(forURL: imageUrl!)
-                    storageRef.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
-                        if let _error = error{
-                            print(_error)
-                        } else {
-                            if let _data  = data {
-                                self.profileImageView.image = UIImage(data: _data)
-                            }
+            Firestore.firestore().collection("users").document(user.uid).addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                
+                //Display user data
+                self.profileNameLabel.text = data["name"] as? String
+                self.fullNameText.text = data["name"] as? String
+                self.emailText.text = data["email"] as? String
+                let imageUrl = data["profileImageUrl"] as? String
+                
+                let storageRef = Storage.storage().reference(forURL: imageUrl!)
+                storageRef.getData(maxSize: (1 * 1024 * 1024)) { (data, error) in
+                    if let _error = error{
+                        print(_error)
+                    } else {
+                        if let _data  = data {
+                            self.profileImageView.image = UIImage(data: _data)
                         }
                     }
-                })
+                }
+            }
         }
+        
     }
+    
     
     @IBAction func saveChanges(_ sender: Any) {
         
+        let authManager = AuthManager()
         let user = Auth.auth().currentUser;
         if validateAllFields() == true {
             
-            //Updates Name and Email
-            if let name = profileName, let email = profileEmail  {
-                
+            //Update
+            if let image = profileImage {
+                //Image
+                authManager.saveImage(image: image)
+            }
+            
+            if let name  = profileName {
                 //Name
-                let dict: Dictionary<String, Any> = [
-                    "name": name,
-                    "email": email
+                let nameDict: Dictionary<String, Any> = [
+                    "name": name
                 ]
-                //Email
+                Firestore.firestore().collection("users").document(user!.uid).updateData(nameDict)
+            }
+            
+            if let email = profileEmail {
+                //Name
+                let emailDict: Dictionary<String, Any> = [
+                    "email": email //Email Firestore Collection
+                ]
+                Firestore.firestore().collection("users").document(user!.uid).updateData(emailDict)
+                
+                //Email Auth
                 user?.updateEmail(to: email, completion: { (error) in
                     if error != nil{
                         let message = "Something went wrong."
@@ -77,8 +108,8 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                         self.present(alertController, animated: true)
                     }
                 })
-                Database.database().reference().child("users").child(user!.uid).updateChildValues(dict)
             }
+            
             //Go back
             navigationController?.popViewController(animated: true)
         }
@@ -93,8 +124,6 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         //Add actions
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         let saveAction = (UIAlertAction(title: "Save", style: .default, handler: { (action) -> Void in
-            //            //Save action clicked go back to login screen
-            //            self.performSegue(withIdentifier: "initialScreen", sender: self)
         }))
         
         alert.addAction(saveAction)
@@ -114,9 +143,7 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
                     if error == nil {
                     }
                 })
-                
             }
-            
         }
         
         // 4. Present the alert.
@@ -137,11 +164,12 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
         })
         
         //Delete All other information saved under current user
-        //Delete current user recipes
-        Database.database().reference().child("recipes").child(user!.uid).removeValue()
+        
         //Delete current user
-        Database.database().reference().child("users").child(user!.uid).removeValue()
-
+        Firestore.firestore().collection("users").document(user!.uid).delete()
+        //Delete current user recipes
+        //Database.database().reference().child("recipes").child(user!.uid).removeValue()
+        
         //Delete curent user profile image
         let storageRef = Storage.storage().reference()
         storageRef.child("profileImages").child(user!.uid).delete(completion: { error in
@@ -195,6 +223,32 @@ class ProfileViewController: UIViewController, UITextFieldDelegate {
             }
         }
         return result
+    }
+    
+    
+    // IMAGE PICKING
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+
+        //Open Image Picker
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let pickerController = UIImagePickerController()
+            pickerController.delegate = self;
+            pickerController.sourceType = .photoLibrary
+            pickerController.allowsEditing = true
+            self.present(pickerController, animated: true, completion: nil)
+        }
+    }
+    
+    //Save and show imaged picked
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            //Set imageView to display selected image
+            profileImageView.image = imageSelected
+            //Save selected image
+            profileImage = imageSelected
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
     
     

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -191,30 +192,30 @@
                                 <state key="normal" title="Button" image="lock" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="password at least 8 characters" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1y-lj-Y7k">
-                                <rect key="frame" x="56" y="724" width="234" height="21"/>
+                                <rect key="frame" x="56" y="724" width="211" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.34735313003626128" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="password at least one capital letter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gW9-xV-Wdh">
-                                <rect key="frame" x="56" y="753" width="265" height="21"/>
+                                <rect key="frame" x="56" y="753" width="239" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.34735313003626128" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="password at least one special character" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fm6-Dn-rnP">
-                                <rect key="frame" x="56" y="782" width="301" height="21"/>
+                                <rect key="frame" x="56" y="782" width="271" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.34735313003626128" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Profile Image" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcf-sA-ARg">
                                 <rect key="frame" x="139" y="435" width="218" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.34735313000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
@@ -309,13 +310,13 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0U-xS-V4X">
                                 <rect key="frame" x="169" y="85" width="76" height="21"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.34735313000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dmr-it-wMK">
                                 <rect key="frame" x="99" y="114" width="216" height="21"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.34735313000000001" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
@@ -327,9 +328,7 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="editProfileBtn:" destination="gyn-Ow-KAx" eventType="touchUpInside" id="cNL-jA-XPU"/>
-                                    <action selector="resetPwdBtn:" destination="kgC-hA-IqU" eventType="touchUpInside" id="23Y-1T-0nV"/>
-                                    <segue destination="pLI-vp-EM8" kind="show" id="PT6-hd-Gyt"/>
+                                    <segue destination="pLI-vp-EM8" kind="show" id="fPi-Vd-JP7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -529,19 +528,20 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="615"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1z-Ft-gty" customClass="CircularProgressView" customModule="Flavorful" customModuleProvider="target">
-                                            <rect key="frame" x="157" y="261" width="100" height="93"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="67t-CN-Lfd">
+                                            <rect key="frame" x="147" y="185" width="120" height="154"/>
+                                            <state key="normal" title="progressBtn" image="progressIcon">
+                                                <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
-                                        <constraint firstItem="g1z-Ft-gty" firstAttribute="width" secondItem="6Kz-II-7tb" secondAttribute="width" multiplier="0.241546" id="FdK-O5-469"/>
-                                        <constraint firstItem="g1z-Ft-gty" firstAttribute="height" secondItem="6Kz-II-7tb" secondAttribute="height" multiplier="0.151745" id="WIx-Yp-gzO"/>
-                                        <constraint firstItem="g1z-Ft-gty" firstAttribute="leading" secondItem="6Kz-II-7tb" secondAttribute="leading" constant="157" id="ZsX-Sx-qPv"/>
-                                        <constraint firstItem="g1z-Ft-gty" firstAttribute="centerX" secondItem="6Kz-II-7tb" secondAttribute="centerX" id="d6Q-GQ-hq9"/>
-                                        <constraint firstAttribute="trailing" secondItem="g1z-Ft-gty" secondAttribute="trailing" constant="157" id="pwc-NK-ALX"/>
-                                        <constraint firstItem="g1z-Ft-gty" firstAttribute="centerY" secondItem="6Kz-II-7tb" secondAttribute="centerY" id="zQI-SG-2qD"/>
+                                        <constraint firstAttribute="trailing" secondItem="67t-CN-Lfd" secondAttribute="trailing" constant="147" id="HlQ-5z-vGs"/>
+                                        <constraint firstItem="67t-CN-Lfd" firstAttribute="top" secondItem="6Kz-II-7tb" secondAttribute="top" constant="185" id="Il1-Hf-Ocq"/>
+                                        <constraint firstItem="67t-CN-Lfd" firstAttribute="centerX" secondItem="6Kz-II-7tb" secondAttribute="centerX" id="b4M-3r-Sld"/>
+                                        <constraint firstAttribute="bottom" secondItem="67t-CN-Lfd" secondAttribute="bottom" constant="276" id="opG-Zt-VEv"/>
                                     </constraints>
                                 </view>
                                 <cells>
@@ -601,7 +601,7 @@
                             </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTER BY CUISINE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uw0-hr-9TD">
                                 <rect key="frame" x="10" y="56" width="146" height="23"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -699,7 +699,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="magnifyingglass" catalog="system" id="7lA-ae-TXi"/>
                     <connections>
-                        <outlet property="containerView" destination="g1z-Ft-gty" id="nKy-LM-rRQ"/>
+                        <outlet property="progressBtn" destination="67t-CN-Lfd" id="BuW-yr-Uof"/>
                         <outlet property="recipeCollectionView" destination="eD3-3A-RPd" id="Ay7-Rw-FhP"/>
                         <outlet property="searchBar" destination="qc8-rz-mzP" id="p1n-bL-aqA"/>
                         <outletCollection property="filterButtons" destination="WGU-ZZ-dJO" collectionClass="NSMutableArray" id="Rmw-ME-ngc"/>
@@ -838,7 +838,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ize-4D-0go">
                                                     <rect key="frame" x="5" y="5" width="394" height="47"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -885,6 +885,20 @@
                                     <action selector="resetPwdBtn:" destination="kgC-hA-IqU" eventType="touchUpInside" id="AXy-An-CDF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UM8-mu-MZR">
+                                <rect key="frame" x="192" y="240" width="30" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" backgroundImage="play.fill" catalog="system">
+                                    <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <imageReference key="image" image="play.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="heavy"/>
+                                </state>
+                                <connections>
+                                    <action selector="playVideo:" destination="tVz-hc-npU" eventType="touchUpInside" id="Ub4-wz-0nz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TJ3-Iw-5ka"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -929,13 +943,13 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="355" translatesAutoresizingMaskIntoConstraints="NO" id="TTH-T7-FR4">
                                             <rect key="frame" x="10" y="113" width="394" height="77"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="step" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="355" translatesAutoresizingMaskIntoConstraints="NO" id="Vuj-lR-VvY">
                                             <rect key="frame" x="10" y="10" width="394" height="93"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -989,7 +1003,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Zmr-Zs-pnD"/>
+        <segue reference="6e0-VW-9qp"/>
         <segue reference="Nqw-xT-zQS"/>
         <segue reference="gl4-RC-CQZ"/>
     </inferredMetricsTieBreakers>
@@ -1001,6 +1015,8 @@
         <image name="lock" catalog="system" width="128" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="person" catalog="system" width="128" height="117"/>
+        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="progressIcon" width="177" height="174"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

@@ -29,6 +29,8 @@ extension DiscoverViewController {
 
     func getRecipesFromApi(tag: String, searchWord: String) {
         
+        progressBtn.pulsate()
+        
         let headers = [
             "x-rapidapi-host": "tasty.p.rapidapi.com",
             "x-rapidapi-key": "59d338597cmsh4f789cced9df6a2p1b0e7fjsna39bda851ccd"
@@ -92,11 +94,7 @@ extension DiscoverViewController {
                                 }
                             }
                             
-                            //Append elements to recipe array
-                            //if self.recipe.count != 20 {
-                                //print(recipe.count)
                             self.recipes.append(Recipe(name: name, imageString: image, videoUrl: video, numbersArray: numbersArray, instructionsArray: instructionsArray, ingredient: arrayOfIngredients))
-                            //}
                         }
                     }
                 }
@@ -107,9 +105,11 @@ extension DiscoverViewController {
             }
             DispatchQueue.main.async {
                 self.recipeCollectionView.reloadData()
+                progressBtn.isHidden = true
             }
         })
         dataTask.resume()
+        progressBtn.isHidden = false
     }
 
 }

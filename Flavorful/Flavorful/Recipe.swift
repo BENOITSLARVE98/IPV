@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 
-class Recipe {
+class Recipe : NSObject, NSCoding{
     
     //properties
     var name: String?
     var image: UIImage?
+    var imageString: String?
     var videoUrl: String?
     var numbersArray: [Int]?
     var instructionsArray: [String]?
@@ -37,6 +38,26 @@ class Recipe {
 
             }
         }
+    }
+    
+    required convenience init?(coder: NSCoder) {
+        self.init(name: "", imageString: "", videoUrl: "", numbersArray: [0], instructionsArray: [""], ingredient: [""])
+        
+        name = coder.decodeObject(forKey: "name") as? String
+        imageString = coder.decodeObject(forKey: "image") as? String
+        videoUrl = coder.decodeObject(forKey: "videoUrl") as? String
+        numbersArray = coder.decodeObject(forKey: "numArray") as? [Int]
+        instructionsArray = coder.decodeObject(forKey: "instructionsArray") as? [String]
+        ingredient = coder.decodeObject(forKey: "ingredient") as? [String]
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(name, forKey: "name")
+        coder.encode(imageString, forKey: "image")
+        coder.encode(videoUrl, forKey: "videoUrl")
+        coder.encode(numbersArray, forKey: "numArray")
+        coder.encode(instructionsArray, forKey: "instructionsArray")
+        coder.encode(ingredient, forKey: "ingredient")
     }
     
 
